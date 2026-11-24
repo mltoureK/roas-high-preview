@@ -376,3 +376,13 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .spend-compare div{padding:.35rem 0;border-top:1px solid #d1d9ef}
 .stage-message{background:#f6fbf5;border:1px solid #a5b8a9;border-radius:8px;padding:.75rem 1rem;color:#203a2c}
 .stage-message summary{cursor:pointer;font-weight:600}.stage-message p{padding:.65rem 0}.stage-message strong{display:block;font-size:.8rem}
+
+.inline-demo{min-width:0;color:var(--ink);align-self:center}
+.inline-demo .launch-content p{color:var(--ink-2)}
+.inline-demo .launch-content{padding:clamp(1rem,2vw,2rem)}
+.stage-points{list-style:none;margin:1.25rem 0 0;padding:0;align-self:center}
+.stage-points li{padding:.65rem 0}
+.stage-price{align-self:center;scroll-margin-top:80px}
+.stage-price h4{margin:0}.stage-price .rate{font-size:1.2rem;color:var(--stage-ink)}
+.stage-price .rate strong{font:normal clamp(3.5rem,6vw,5.5rem) Georgia,serif;letter-spacing:-.06em}
+.stage-price .btn{margin:1rem 0}.stage-price small{display:block;max-width:48ch}
