@@ -416,3 +416,10 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
   .inline-demo .profile-capture img{width:auto;max-width:none;height:110px}
   .inline-demo .profile-play{left:44px;top:74px;width:44px;height:44px}
 }
+
+.gmail-capture{position:relative;margin-top:1.25rem;background:#262626;border-radius:8px;overflow:hidden}
+.gmail-capture img{width:100%;height:auto}
+.gmail-invite-hit{position:absolute;left:37.4%;top:74%;width:62.6%;height:26%;min-height:44px;cursor:pointer;border:2px solid #a9c4ff;background:transparent;color:white;text-align:right}
+.gmail-invite-hit span{position:absolute;right:.4rem;bottom:.3rem;padding:.15rem .4rem;background:#174ac1;border-radius:4px;font-size:.7rem}
+.gmail-invite-hit:hover{background:#89afff20}
+@media(max-width:700px){.gmail-capture img{width:calc(100% + 110px);max-width:none;transform:translateX(-110px)}.gmail-capture{min-height:115px}.gmail-invite-hit{left:13%;width:87%;top:auto;bottom:0;height:44px}}
