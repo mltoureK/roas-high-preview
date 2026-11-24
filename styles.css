@@ -390,3 +390,29 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .inbox-capture{display:block;width:100%;padding:0;border:2px solid #8baaff;border-radius:8px;overflow:hidden;cursor:pointer;background:#262626;min-height:44px}
 .inbox-capture img{width:100%;height:auto}
 .inbox-capture:hover{box-shadow:0 0 0 3px #7b9dff50}
+
+/* Phone-first tutorial framing */
+.reason-group:first-of-type .stage-lead{grid-column:1/-1}
+.reason-group:first-of-type .stage-points{display:flex;flex-wrap:wrap;gap:.3rem 1.5rem;margin-top:1rem}
+.reason-group:first-of-type .stage-points li{border:0;padding:0;font-size:.9rem}
+.inline-demo{grid-column:1/-1}
+.inline-demo .launch-card{max-width:none}
+.inline-demo .launch-content h3{font:600 clamp(1.3rem,3vw,2rem)/1.15 var(--font);letter-spacing:-.035em}
+.browser-preview{background:#dce5f5;color:#253041}
+.browser-tab{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;font-size:.85rem}
+.browser-tab small{font-size:.7rem;color:#4c596e}
+.browser-address{display:flex;gap:.75rem;align-items:center;padding:.5rem .8rem;background:#f2f5fb;border-bottom:1px solid #ccd3df;font-size:.8rem}
+.browser-address span:last-child{background:white;border-radius:999px;padding:.3rem .8rem;flex:1}
+.inline-demo [data-screen=inbox] .launch-content{min-height:260px;background:#202124;color:#f2f3f5}
+.inline-demo [data-screen=inbox] .launch-content p{color:#d3d5da}
+.inbox-capture{margin-top:1.25rem}
+@media(max-width:700px){
+  .inline-demo .stage-body{padding:.65rem}
+  .inline-demo .stage-title{font:500 .66rem var(--font);text-transform:none;letter-spacing:0}
+  .inline-demo .stage-bar{padding:.6rem .65rem}
+  .inline-demo .guide-foot{flex-wrap:wrap;gap:.3rem}
+  .inline-demo .launch-content{padding:1rem}
+  .inline-demo .profile-capture{min-height:110px;overflow:hidden;border-radius:8px}
+  .inline-demo .profile-capture img{width:auto;max-width:none;height:110px}
+  .inline-demo .profile-play{left:44px;top:74px;width:44px;height:44px}
+}
