@@ -13,6 +13,13 @@ function renderStep(step) {
   for (const panel of panels) panel.hidden = panel !== active;
   const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', workspace: 'Ready to launch', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
+  if (step === 'signin') {
+    document.getElementById('sample-login-email').textContent = 'Sample email';
+    document.getElementById('sample-login-password').hidden = true;
+    document.getElementById('sample-login-status').textContent = '';
+    document.querySelector('.signin-continue').classList.remove('sample-ready');
+    document.getElementById('try-sample-login').hidden = false;
+  }
   active.querySelector('h3').focus();
 }
 
@@ -96,3 +103,13 @@ spendSlider.addEventListener('input', () => {
   document.getElementById('spend-value').value = dollars.format(spend);
   document.getElementById('percent-cost').textContent = dollars.format(spend * 0.06);
 });
+
+document.getElementById('try-sample-login').onclick = () => {
+  document.getElementById('sample-login-email').textContent = 'you@example.com';
+  document.getElementById('sample-login-password').hidden = false;
+  document.getElementById('sample-login-status').textContent = 'Sample details filled. Click Continue.';
+  document.getElementById('try-sample-login').hidden = true;
+  const continueButton = document.querySelector('.signin-continue');
+  continueButton.classList.add('sample-ready');
+  continueButton.focus({preventScroll:true});
+};

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=setup-help">
+<link rel="stylesheet" href="styles.css?v=sample-login">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -97,12 +97,15 @@
             <div class="sim-bar"><span>Multilogin</span><small>Sign-in preview</small></div>
             <div class="launch-content">
               <h3 tabindex="-1">Sign in to your workspace</h3>
-              <p>Use the account that received your invitation. Click Continue to preview the workspace.</p>
+              <p>Practice with sample details.</p>
+              <button type="button" class="btn sample-login-trigger" id="try-sample-login">Try sample login</button>
+              <p id="sample-login-status" class="sample-login-status" role="status"></p>
               <div class="signin-capture" aria-label="Multilogin sign-in screenshot with sample email">
                 <img src="assets/signin-top.png" width="900" height="370" alt="Sign in. Invitation accepted. Sign in to access the new workspace.">
-                <div class="sample-email">you@example.com</div>
+                <div class="sample-email" id="sample-login-email" aria-label="Sample email">Sample email</div>
                 <div class="signin-bottom">
                   <img src="assets/signin-bottom.png" width="900" height="496" alt="Password field, Remember me, Forgot password, and Continue button shown in the screenshot">
+                  <div class="sample-password" id="sample-login-password" aria-label="Sample password filled" hidden>••••••••••••</div>
                   <button type="button" class="signin-continue" data-next="select" aria-label="Continue to workspace"></button>
                 </div>
               </div>

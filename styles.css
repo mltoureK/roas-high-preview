@@ -462,3 +462,8 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .setup-download-hit{left:8%;top:54%;width:36.5%;height:6.5%}
 .setup-help-hit{left:80.5%;top:2.7%;width:11%;height:5%;min-width:44px}
 .setup-download-hit:hover,.setup-help-hit:hover{box-shadow:0 0 0 3px #457dff60}
+
+.sample-login-trigger{margin-bottom:.4rem}
+.sample-login-status{font-size:.85rem;min-height:1.3em}
+.sample-password{position:absolute;left:8%;top:14%;width:76%;height:12%;display:flex;align-items:center;background:white;color:#252525;font-size:clamp(.85rem,2vw,1.15rem)}
+.signin-continue.sample-ready{box-shadow:0 0 0 4px #6c98ff65}
