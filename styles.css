@@ -344,3 +344,14 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .profile-capture img{width:100%;height:auto;border-radius:8px}
 .profile-play{position:absolute;left:8.24%;top:67.62%;transform:translate(-50%,-50%);width:max(6%,44px);height:max(29%,44px);background:transparent;border:2px solid #a9c7ff;border-radius:9px;cursor:pointer}
 .profile-play:hover,.profile-play:focus-visible{box-shadow:0 0 0 3px #719cff80;outline:2px solid white}
+
+.reasons{scroll-margin-top:65px}
+.reasons h2{font:normal clamp(2.3rem,5vw,4rem)/1.05 Georgia,serif;letter-spacing:-.045em;margin:0 0 2rem}
+.reason-group{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2rem;border-top:1px solid var(--line-strong);padding:1.5rem 0}
+.reason-group h3{font:normal 1.65rem/1.2 Georgia,serif;margin:0}
+.reason-group ol{margin:0;padding-left:2rem}
+.reason-group li{padding:0 0 .9rem .5rem}
+.reason-group li::marker{color:var(--ink-2);font-variant-numeric:tabular-nums}
+.reason-group h4{margin:0;font-size:1.05rem}
+.reason-group p{margin:.2rem 0 0;color:var(--ink-2)}
+@media(max-width:700px){.reason-group{grid-template-columns:1fr;gap:1rem}}
