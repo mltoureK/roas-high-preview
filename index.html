@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=workspace-menu">
+<link rel="stylesheet" href="styles.css?v=setup-help">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -120,10 +120,41 @@
                   <div class="sample-account">you@example.com</div>
                   <div class="workspace-menu-picture">
                     <img src="assets/workspace-selection.png" width="420" height="205" alt="Account menu showing Support@Roashigh.com and Sign out">
-                    <button type="button" class="workspace-select-hit" data-next="workspace" aria-label="Select ROAS HIGH workspace"></button>
+                    <button type="button" class="workspace-select-hit" data-next="setup" aria-label="Select ROAS HIGH workspace"></button>
                   </div>
                 </div>
               </details>
+            </div>
+          </section>
+
+          <section class="launch-card" data-screen="setup" hidden>
+            <div class="sim-bar"><span>One-time computer setup</span><small>Interactive preview</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">We’ll help you get connected.</h3>
+              <p>We’ll guide you through installing Multilogin and connecting your workspace by email or WhatsApp.</p>
+              <div class="setup-shot">
+                <img src="assets/setup-download.png" width="1240" height="1230" alt="Multilogin setup prompt with the recommended desktop application download and Get help link">
+                <button type="button" class="setup-download-hit" data-next="installed" aria-label="Preview the desktop installation step"></button>
+                <button type="button" class="setup-help-hit" data-next="help" aria-label="Preview Multilogin help"></button>
+              </div>
+              <button type="button" class="btn-subtle" data-next="workspace">Already installed? Open your profile →</button>
+            </div>
+          </section>
+          <section class="launch-card" data-screen="installed" hidden>
+            <div class="sim-bar"><span>One-time computer setup</span><small>Preview</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Install once. Then press play.</h3>
+              <p>In your actual setup, download the desktop app for your computer, install it, and sign in with the account that accepted the invitation. We’ll guide you if you get stuck.</p>
+              <button type="button" class="btn" data-next="workspace">Preview the prepared profile →</button>
+            </div>
+          </section>
+          <section class="launch-card" data-screen="help" hidden>
+            <div class="sim-bar"><span>Multilogin Help Center</span><small>Support preview</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">App troubleshooting is a click away.</h3>
+              <p>Multilogin’s help page includes a chat option. ROAS HIGH can help with your invitation, assigned profile and first launch.</p>
+              <img src="assets/setup-help-chat.png" alt="Multilogin agent connection help article with its Chat now option">
+              <div class="scene-actions"><a class="btn" href="https://multilogin.com/help/agent-connection-issue/" target="_blank" rel="noopener noreferrer">Open Multilogin help</a><button type="button" class="btn-ghost" data-next="setup">Back to setup</button></div>
             </div>
           </section>
 

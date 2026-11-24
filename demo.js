@@ -11,7 +11,7 @@ function renderStep(step) {
   document.getElementById('previous').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', select: '3 of 3', workspace: '3 of 3', facebook: 'Complete' };
+  const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', workspace: 'Ready to launch', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   active.querySelector('h3').focus();
 }
@@ -27,7 +27,9 @@ for (const button of guided.querySelectorAll('[data-next]')) {
 }
 document.getElementById('previous').onclick = () => {
   if (current === 'facebook') return renderStep('workspace');
-  if (current === 'workspace') return renderStep('select');
+  if (current === 'workspace') return renderStep('setup');
+  if (current === 'setup') return renderStep('select');
+  if (current === 'help' || current === 'installed') return renderStep('setup');
   if (current === 'select') return renderStep('signin');
   if (current === 'signin') return renderStep('join');
   if (current === 'join') return renderStep('inbox');
