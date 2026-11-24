@@ -438,3 +438,10 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .mail-email-link{left:51.2%;width:23.5%}
 .mail-help-link:hover,.mail-email-link:hover{background:#175bff18;outline:1px solid #175bff}
 @media(max-width:700px){.opened-mail-join{left:1.67%;top:1.7%;width:12.83%;height:11.43%}}
+
+.signin-capture{max-width:450px;margin:auto;background:white;border-radius:14px;overflow:hidden}
+.signin-capture img{width:100%;height:auto}
+.sample-email{margin:0 5.5%;padding:.5rem .75rem;border:2px solid #0866ff;border-radius:7px;color:#555;background:white;font-size:clamp(.85rem,2vw,1.1rem)}
+.signin-bottom{position:relative}
+.signin-continue{position:absolute;left:5.5%;top:67.7%;width:89%;height:16.1%;min-height:32px;cursor:pointer;border:2px solid #82a8ff;border-radius:7px;background:transparent}
+.signin-continue:hover{box-shadow:0 0 0 3px #457dff60}
