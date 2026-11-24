@@ -355,14 +355,7 @@ function show(index, focus = false) {
       <button type="button" id="welcome-back" class="btn-subtle" style="margin-bottom:.5rem">← Back to inbox</button>
       <div class="mail-letter">
         <div class="mail-from"><span class="mail-avatar" aria-hidden="true">R</span><div><strong>ROAS HIGH Setup</strong><small>To: Studio North team</small></div></div>
-        <h4>Your Studio North workspace is ready</h4>
-        <p>Hi Alex, we’ve prepared your browser profile. Look for a separate invitation from Multilogin at this email address.</p>
-        <ol>
-          <li>Open the Multilogin invitation and choose <strong>Join workspace</strong>. Create or sign in to your Multilogin account.</li>
-          <li>In the dashboard, connect the <strong>local agent</strong> (desktop helper app on your computer).</li>
-          <li>Find <strong>Studio North</strong> under <em>Shared folder</em> and press <strong>Start</strong>.</li>
-        </ol>
-        <p>If your screen looks different, reply here with the step you reached.</p>
+        ${document.getElementById('handoff-email').innerHTML}
         <button type="button" class="btn" id="next-inbox">Find my invitation →</button>
       </div>`;
 

@@ -192,6 +192,15 @@ h1 em{font-style:normal;color:var(--accent)}
 .compare-wrap{margin-top:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow-x:auto}
 .draft-note{margin:1rem 0 0;font-size:.84rem;color:var(--ink-2);line-height:1.55}
 
+.offer-intro{max-width:36ch;margin:0;color:var(--ink-2);line-height:1.55}
+.plan-scope{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin:0 0 1.5rem}
+.plan-scope div{border-top:1px solid var(--line-strong);padding-top:.75rem}
+.plan-scope dt{font-weight:700}
+.plan-scope dd{margin:.35rem 0 0;color:var(--ink-2);font-size:.94rem}
+.handoff-example{margin-top:1rem}
+.handoff-example .mail-letter{max-width:66ch;padding:.25rem .25rem .75rem}
+@media(max-width:700px){.plan-scope{grid-template-columns:1fr;gap:.8rem}}
+
 /* How & Support */
 .two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
 .stack{display:grid;gap:.65rem}
