@@ -11,14 +11,14 @@ function renderStep(step) {
   document.getElementById('previous').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { join: '1 of 3', signin: '2 of 3', workspace: '3 of 3', facebook: 'Complete' };
+  const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', workspace: '3 of 3', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   active.querySelector('h3').focus();
 }
 
 function openPath(existing) {
   returning = existing;
-  renderStep(existing ? 'workspace' : 'join');
+  renderStep(existing ? 'workspace' : 'inbox');
 }
 
 document.getElementById('new-path').onclick = () => openPath(false);
@@ -29,6 +29,7 @@ document.getElementById('previous').onclick = () => {
   if (current === 'facebook') return renderStep('workspace');
   if (current === 'workspace') return renderStep('signin');
   if (current === 'signin') return renderStep('join');
+  if (current === 'join') return renderStep('inbox');
   openPath(true);
 };
 

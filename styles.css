@@ -386,3 +386,7 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .stage-price h4{margin:0}.stage-price .rate{font-size:1.2rem;color:var(--stage-ink)}
 .stage-price .rate strong{font:normal clamp(3.5rem,6vw,5.5rem) Georgia,serif;letter-spacing:-.06em}
 .stage-price .btn{margin:1rem 0}.stage-price small{display:block;max-width:48ch}
+
+.inbox-capture{display:block;width:100%;padding:0;border:2px solid #8baaff;border-radius:8px;overflow:hidden;cursor:pointer;background:#262626;min-height:44px}
+.inbox-capture img{width:100%;height:auto}
+.inbox-capture:hover{box-shadow:0 0 0 3px #7b9dff50}
