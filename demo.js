@@ -2,20 +2,16 @@
 const guided = document.getElementById('guided');
 const panels = [...guided.querySelectorAll('[data-screen]')];
 const progress = document.getElementById('tour-position');
-const installPrompt = document.getElementById('install-prompt');
-const signinPrompt = document.getElementById('signin-prompt');
 let returning = true;
 let current = 'workspace';
 
-function renderStep(step, signedInPrompt = false) {
+function renderStep(step) {
   current = step;
   document.getElementById('new-path').hidden = step !== 'workspace';
   document.getElementById('previous').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  installPrompt.hidden = signedInPrompt;
-  signinPrompt.hidden = !signedInPrompt;
-  const labels = { join: '1 of 3', install: '2 of 3', workspace: '3 of 3', facebook: 'Complete' };
+  const labels = { join: '1 of 3', signin: '2 of 3', workspace: '3 of 3', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   active.querySelector('h3').focus();
 }
@@ -26,18 +22,13 @@ function openPath(existing) {
 }
 
 document.getElementById('new-path').onclick = () => openPath(false);
-document.getElementById('install-app').onclick = () => {
-  installPrompt.hidden = true;
-  signinPrompt.hidden = false;
-  signinPrompt.querySelector('button').focus();
-};
 for (const button of guided.querySelectorAll('[data-next]')) {
   button.onclick = () => renderStep(button.dataset.next);
 }
 document.getElementById('previous').onclick = () => {
   if (current === 'facebook') return renderStep('workspace');
-  if (current === 'workspace') return renderStep('install', true);
-  if (current === 'install') return renderStep(signinPrompt.hidden ? 'join' : 'install');
+  if (current === 'workspace') return renderStep('signin');
+  if (current === 'signin') return renderStep('join');
   openPath(true);
 };
 

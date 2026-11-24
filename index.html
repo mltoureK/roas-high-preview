@@ -34,7 +34,7 @@
     <div class="hero-copy">
       <h1 id="offer-title">Your Meta ads workspace, <em>set up for you.</em></h1>
       <p class="offer-intro">We prepare your Multilogin profile and guide your first launch by email or WhatsApp. No calls to book.</p>
-      <a class="btn" href="#demo">Explore the workspace <span aria-hidden="true">→</span></a>
+      <a class="btn" href="#demo">Try the interactive demo <span aria-hidden="true">→</span></a>
     </div>
     <article class="handoff-preview" aria-label="Sample handoff email">
       <header><span class="sender-mark" aria-hidden="true">RH</span><strong>ROAS HIGH</strong><small>Sample handoff email</small></header>
@@ -109,22 +109,16 @@
               <div class="mail-from"><span class="mail-avatar" aria-hidden="true">M</span><strong>Multilogin</strong></div>
               <h3 tabindex="-1">Join the Studio North workspace</h3>
               <p>ROAS HIGH invited you to the workspace where your browser profile is ready.</p>
-              <button type="button" class="btn" data-next="install">Join workspace</button>
+              <button type="button" class="btn" data-next="signin">Join workspace</button>
             </div>
           </section>
 
-          <section class="launch-card" data-screen="install" hidden>
-            <div class="sim-bar"><span>Multilogin desktop</span><small>One-time setup</small></div>
+          <section class="launch-card" data-screen="signin" hidden>
+            <div class="sim-bar"><span>Multilogin</span><small>Sign-in preview</small></div>
             <div class="launch-content">
-              <h3 tabindex="-1">Set up the desktop app</h3>
-              <div id="install-prompt">
-                <p>Install Multilogin on your computer, then sign in.</p>
-                <button type="button" class="btn" id="install-app">Install Multilogin</button>
-              </div>
-              <div id="signin-prompt" hidden>
-                <p>The app is ready. Sign in with the same account you used to accept the invitation.</p>
-                <button type="button" class="btn" data-next="workspace">Sign in</button>
-              </div>
+              <h3 tabindex="-1">Sign in to your workspace</h3>
+              <p>Use the account that received your invitation. In this demo, click below to see the workspace.</p>
+              <button type="button" class="btn" data-next="workspace">Continue to workspace</button>
             </div>
           </section>
 
@@ -261,6 +255,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=workspace-first" defer></script>
+<script src="demo.js?v=signin-preview" defer></script>
 </body>
 </html>
