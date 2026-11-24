@@ -100,27 +100,8 @@
         <span class="stage-title">Interactive preview · No password needed</span>
       </div>
       <div class="stage-body">
-        <section id="paths" aria-labelledby="paths-heading">
-          <div class="paths-head">
-            <h2 id="paths-heading">Try your first launch</h2>
-          </div>
-          <div class="paths-grid">
-            <button type="button" class="path-card" id="new-path">
-              <strong>New to Multilogin</strong>
-              <span class="path-go">Start with the invitation email →</span>
-            </button>
-            <button type="button" class="path-card" id="returning-path">
-              <strong>Already use Multilogin?</strong>
-              <span class="path-go">Open the workspace →</span>
-            </button>
-          </div>
-        </section>
-
-        <div id="guided" hidden>
-          <div class="guide-top">
-            <button type="button" class="btn-subtle" id="switch-path">← Switch path</button>
-            <span class="tour-position" id="tour-position"></span>
-          </div>
+        <div id="guided">
+          <div class="tour-position" id="tour-position"></div>
 
           <section class="launch-card" data-screen="join" hidden>
             <div class="sim-bar"><span>Inbox</span><small>Invitation email</small></div>
@@ -147,7 +128,7 @@
             </div>
           </section>
 
-          <section class="launch-card" data-screen="workspace" hidden>
+          <section class="launch-card" data-screen="workspace">
             <div class="sim-bar"><span>Multilogin desktop</span><small>Profiles</small></div>
             <div class="launch-content">
               <h3 tabindex="-1">Just hit play.</h3>
@@ -168,7 +149,7 @@
               <a class="btn" href="#request">Get setup details</a>
             </div>
           </section>
-          <div class="guide-foot"><button type="button" class="btn-subtle" id="previous">← Back</button></div>
+          <div class="guide-foot"><button type="button" class="btn-subtle" id="previous" hidden>← Back</button><button type="button" class="btn-subtle" id="new-path">Show me from the invitation →</button></div>
         </div>
       </div>
     </div>
@@ -280,6 +261,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=first-launch" defer></script>
+<script src="demo.js?v=workspace-first" defer></script>
 </body>
 </html>
