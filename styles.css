@@ -467,3 +467,14 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .sample-login-status{font-size:.85rem;min-height:1.3em}
 .sample-password{position:absolute;left:8%;top:14%;width:76%;height:12%;display:flex;align-items:center;background:white;color:#252525;font-size:clamp(.85rem,2vw,1.15rem)}
 .signin-continue.sample-ready{box-shadow:0 0 0 4px #6c98ff65}
+
+.managed-plans{scroll-margin-top:80px;min-width:0}
+.access-plan{padding:1.1rem;border:1px solid #a5b4d5;border-radius:10px;background:#f2f5ff;margin-bottom:1rem}
+.access-plan h4{margin:0;font-size:1.15rem}
+.access-plan .rate{color:#152b62;margin:.5rem 0}
+.access-plan .rate strong{font:normal clamp(2.8rem,5vw,4rem) Georgia,serif;letter-spacing:-.06em}
+.access-plan .btn,.access-plan .btn-ghost{margin-top:.75rem}
+.scale-plan{border:2px solid #1a47d8;background:white}
+.access-terms{font-size:.9rem}
+.access-details{margin:.8rem 0;font-size:.9rem}.access-details summary{cursor:pointer;font-weight:600}
+.managed-plans small{display:block;color:#344567;font-size:.8rem}

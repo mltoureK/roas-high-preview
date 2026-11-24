@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=sample-login">
+<link rel="stylesheet" href="styles.css?v=managed-plans">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -193,20 +193,31 @@
         <div class="spend-compare"><label for="compare-spend">Monthly ad spend <output id="spend-value" for="compare-spend">$30,000</output></label>
           <input id="compare-spend" type="range" min="5000" max="100000" step="1000" value="30000">
           <div><span>At a 6% fee</span><b id="percent-cost">$1,800</b></div>
-          <div><span>ROAS HIGH flat fee</span><b>$999</b></div>
+          <div><span>Scale Partner monthly fee</span><b>$999</b></div>
         </div></div>
-      <div class="stage-price" id="plans"><h4>Scale Partner</h4>
-        <p class="rate"><strong>$999</strong> / month</p>
-        <p>$0 setup. Flat fee at any spend.</p>
-        <p>Top up with your own card and keep eligible rewards.</p>
-        <button type="button" class="btn" data-plan="Scale Partner">Get setup details</button>
-        <small>USD, before tax. Your quote confirms access, amount due and first billing date.</small></div>
+      <div class="managed-plans" id="plans" aria-label="Managed access plans">
+        <article class="access-plan">
+          <h4>Starter</h4><p class="rate"><strong>$399</strong> / month</p>
+          <p>$299 one-time setup</p><p><strong>$698 due at signup</strong>, including your first month.</p>
+          <p>Managed access to one ad account.</p>
+          <button type="button" class="btn-ghost" data-plan="Starter">Choose Starter</button>
+        </article>
+        <article class="access-plan scale-plan">
+          <h4>Scale Partner</h4><p class="rate"><strong>$999</strong> / month</p>
+          <p>Setup fee waived · $0 setup</p><p><strong>$999 due at signup</strong>, including your first month.</p>
+          <p>One ad account prepared in a Business Manager with capacity for three total.</p>
+          <button type="button" class="btn" data-plan="Scale Partner">Choose Scale Partner</button>
+        </article>
+        <p class="access-terms">Both plans include a managed Multilogin profile, proxy service, and written onboarding and support. Access continues while your subscription is active and ends when your paid subscription period ends. Ad spend is funded separately.</p>
+        <details class="access-details"><summary>Billing and asset access</summary><p>Monthly fees recur at the plan rate. Setup is charged once on Starter and waived on Scale Partner. The subscription provides managed access. Customer-owned business assets remain yours; continued use of our workspace and proxy requires an active subscription. Your written agreement identifies asset ownership, permissions and cancellation terms.</p></details>
+        <small>USD, before tax. Your quote confirms availability, permissions and billing dates.</small>
+      </div>
     </section>
     <section class="reason-group">
-      <div class="stage-lead"><h3>Your assets and ongoing support</h3>
+      <div class="stage-lead"><h3>Your managed access</h3>
         <details class="stage-message"><summary>Open a sample support reply</summary>
           <p><strong>You</strong>Which profile do I open?</p><p><strong>ROAS HIGH</strong>Open the Studio North folder. Press ▶ beside the profile named in your handoff email.</p></details></div>
-      <ul class="stage-points"><li>Your business owns its Meta ad assets.</li><li>One ad account prepared. Room for two more.</li><li>Written support by email or WhatsApp.</li></ul>
+      <ul class="stage-points"><li>Prepared workspace and proxy included.</li><li>Starter includes one ad account. Scale Partner includes capacity for three total.</li><li>Access and written support throughout your paid subscription.</li></ul>
     </section>
   </section>
 
@@ -303,8 +314,8 @@
             <p>Open Multilogin, find the profile named in your handoff email, and press Start. Meta may ask you to sign in again or verify your access.</p>
           </details>
           <details>
-            <summary>What does managed setup cover?</summary>
-            <p>We prepare the browser profile and guide your first launch. Your written quote lists the Meta assets, permissions and verification status for your setup.</p>
+            <summary>Does access require an active subscription?</summary>
+            <p>Yes. Your plan pays for ongoing managed workspace access, proxy service and written support. Access ends when your paid subscription period ends. Customer-owned business assets remain yours under your written agreement.</p>
           </details>
         </div>
       </div>
@@ -316,6 +327,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=interactive-stages" defer></script>
+<script src="demo.js?v=managed-plans" defer></script>
 </body>
 </html>
