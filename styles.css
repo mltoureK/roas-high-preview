@@ -346,12 +346,21 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .profile-play:hover,.profile-play:focus-visible{box-shadow:0 0 0 3px #719cff80;outline:2px solid white}
 
 .reasons{scroll-margin-top:65px}
-.reasons h2{font:normal clamp(2.3rem,5vw,4rem)/1.05 Georgia,serif;letter-spacing:-.045em;margin:0 0 2rem}
-.reason-group{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2rem;border-top:1px solid var(--line-strong);padding:1.5rem 0}
-.reason-group h3{font:normal 1.65rem/1.2 Georgia,serif;margin:0}
-.reason-group ol{margin:0;padding-left:2rem}
-.reason-group li{padding:0 0 .9rem .5rem}
-.reason-group li::marker{color:var(--ink-2);font-variant-numeric:tabular-nums}
-.reason-group h4{margin:0;font-size:1.05rem}
-.reason-group p{margin:.2rem 0 0;color:var(--ink-2)}
-@media(max-width:700px){.reason-group{grid-template-columns:1fr;gap:1rem}}
+.stage-reader-title{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.reason-group{
+  --stage-bg:#192a32;--stage-ink:#faf7ee;--stage-muted:#d3dddf;
+  color:var(--stage-ink);background:var(--stage-bg);
+  display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  gap:clamp(2rem,7vw,7rem);align-content:center;
+  padding:clamp(4rem,8vw,8rem) max(1.25rem,calc((100% - var(--max))/2));
+  min-height:70svh;
+}
+.reason-group:nth-of-type(2){--stage-bg:#e4eafe;--stage-ink:#152b62;--stage-muted:#344567}
+.reason-group:nth-of-type(3){--stage-bg:#e1ebe2;--stage-ink:#203a2c;--stage-muted:#3a5043}
+.reason-group h3{font:normal clamp(2.75rem,6vw,5.5rem)/1.02 Georgia,serif;letter-spacing:-.055em;margin:0;align-self:start;text-wrap:balance}
+.reason-group ol{margin:0;padding-left:2.25rem}
+.reason-group li{border-top:1px solid color-mix(in srgb,currentColor 24%,transparent);padding:.9rem 0 .95rem .4rem}
+.reason-group li::marker{color:var(--stage-muted);font-family:var(--mono);font-size:.8rem}
+.reason-group h4{font-size:clamp(1.05rem,2vw,1.3rem);margin:0}
+.reason-group p{margin:.25rem 0 0;color:var(--stage-muted)}
+@media(max-width:700px){.reason-group{grid-template-columns:1fr;gap:1.75rem;min-height:auto;padding-block:3.5rem}}
