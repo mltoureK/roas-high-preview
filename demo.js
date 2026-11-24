@@ -84,3 +84,11 @@ form.addEventListener('submit', (event) => {
   resultBox.textContent = `Preview complete (${channel.value} · ${planInput.value}). Nothing was sent or saved.`;
   resultBox.hidden = false;
 });
+
+const spendSlider = document.getElementById('compare-spend');
+const dollars = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+spendSlider.addEventListener('input', () => {
+  const spend = spendSlider.valueAsNumber;
+  document.getElementById('spend-value').value = dollars.format(spend);
+  document.getElementById('percent-cost').textContent = dollars.format(spend * 0.06);
+});

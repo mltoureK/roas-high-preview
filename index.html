@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=scroll-stages">
+<link rel="stylesheet" href="styles.css?v=interactive-stages">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -149,7 +149,8 @@
   <section class="reasons" id="reasons" aria-labelledby="reasons-title">
     <h2 id="reasons-title" class="stage-reader-title">10 reasons to choose ROAS HIGH</h2>
     <section class="reason-group">
-      <h3>Your first launch</h3>
+      <div class="stage-lead"><h3>Your first launch</h3>
+        <a class="stage-profile" href="#demo"><img src="assets/studio-north-profile.png" alt="Studio North browser profile in Multilogin"><span>Try the play button in the demo →</span></a></div>
       <ol start="1">
         <li><h4>A workspace checked before handoff</h4><p>We open your prepared profile and check Facebook access before sending your guide.</p></li>
         <li><h4>One click to open your profile</h4><p>Press ▶ beside the profile named in your handoff email. You can try that exact click in the demo above.</p></li>
@@ -158,7 +159,12 @@
       </ol>
     </section>
     <section class="reason-group">
-      <h3>Your monthly cost</h3>
+      <div class="stage-lead"><h3>Your monthly cost</h3>
+        <div class="spend-compare"><label for="compare-spend">Monthly ad spend <output id="spend-value" for="compare-spend">$30,000</output></label>
+          <input id="compare-spend" type="range" min="5000" max="100000" step="1000" value="30000">
+          <div><span>At a 6% fee</span><b id="percent-cost">$1,800</b></div>
+          <div><span>ROAS HIGH flat fee</span><b>$999</b></div>
+        </div></div>
       <ol start="5">
         <li><h4>Zero setup fee</h4><p>Workspace preparation is included in the $999 monthly subscription.</p></li>
         <li><h4>A flat fee as spend grows</h4><p>Our monthly service fee stays at $999 when you increase your ad budget.</p></li>
@@ -166,7 +172,9 @@
       </ol>
     </section>
     <section class="reason-group">
-      <h3>Your assets and ongoing support</h3>
+      <div class="stage-lead"><h3>Your assets and ongoing support</h3>
+        <details class="stage-message"><summary>Open a sample support reply</summary>
+          <p><strong>You</strong>Which profile do I open?</p><p><strong>ROAS HIGH</strong>Open the Studio North folder. Press ▶ beside the profile named in your handoff email.</p></details></div>
       <ol start="8">
         <li><h4>You own your advertising assets</h4><p>Your Meta advertising assets belong to your business. ROAS HIGH handles workspace setup and support.</p></li>
         <li><h4>One ad account prepared, with room for two more</h4><p>Your Business Manager has capacity for three ad accounts in total. We set up the first for you.</p></li>
@@ -281,6 +289,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=signin-preview" defer></script>
+<script src="demo.js?v=interactive-stages" defer></script>
 </body>
 </html>
