@@ -59,11 +59,20 @@ a{color:inherit}
 button:disabled{opacity:.45;cursor:not-allowed}
 
 /* Hero + Interactive Stage */
-.hero{padding:2.25rem 0 3rem}
-.hero-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
-h1{margin:0;font-size:clamp(2rem,4.2vw,3.1rem);line-height:1.04;letter-spacing:-.04em;font-weight:800;max-width:16ch}
-h1 em{font-style:normal;color:var(--accent)}
-.hero-actions{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(2rem,6vw,5rem);padding:clamp(3rem,7vw,6.5rem) 0}
+.hero-copy{display:grid;justify-items:start;gap:1.4rem}
+h1{margin:0;font:normal clamp(3.25rem,5.6vw,5rem)/.99 Georgia,serif;letter-spacing:-.055em;max-width:14ch;text-wrap:balance}
+h1 em{font-weight:normal}
+.handoff-preview{background:#fffefa;border:1px solid var(--line);padding:clamp(1.2rem,3vw,2.1rem);box-shadow:0 15px 36px rgba(55,46,28,.07)}
+.handoff-preview header{display:flex;align-items:center;gap:.6rem;padding-bottom:1rem;border-bottom:1px solid var(--line);font-size:.82rem}
+.sender-mark{display:grid;place-items:center;width:2rem;height:2rem;background:var(--ink);color:white;font-family:Georgia,serif}
+.handoff-preview small{margin-left:auto;color:var(--ink-2)}
+.handoff-preview .mail-letter{border:0;background:transparent;padding:1.15rem 0 0}
+.handoff-preview .mail-letter h4{font:normal 1.55rem/1.15 Georgia,serif;letter-spacing:-.035em}
+.handoff-preview .mail-letter li{margin-bottom:.45rem}
+.handoff-preview .mail-letter p:last-child{margin-bottom:0}
+#demo,#plans,#how,#request{scroll-margin-top:65px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-copy{gap:1rem}}
 .sim-pill{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);padding:.35rem .65rem;border-radius:999px}
 .sim-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok)}
 
@@ -175,7 +184,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .sec-head p{margin:0;color:var(--ink-2);max-width:48ch;font-size:.94rem}
 
 /* Plans */
-.flagship{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1.2rem,3vw,2.5rem)}
+.flagship{background:var(--surface);border-top:2px solid var(--ink);padding:clamp(1.2rem,3vw,2.5rem)}
 .flagship header{padding-bottom:1.25rem;border-bottom:1px solid var(--line)}
 .flagship h2{margin:0;font-size:clamp(1.85rem,3vw,2.6rem);letter-spacing:-.045em;line-height:1.1}
 .flagship header p,.other-plan p{margin:.35rem 0 0;color:var(--ink-2)}
@@ -184,7 +193,7 @@ h1 em{font-style:normal;color:var(--accent)}
 .plan-price{display:flex;align-items:baseline;gap:.55rem}
 .plan-price strong{font-size:clamp(2.8rem,5vw,4rem);line-height:1;letter-spacing:-.055em}
 .plan-price span{color:var(--ink-2);font-weight:600}
-.plan-monthly{font-size:1.24rem;font-weight:700;color:var(--accent)}
+.plan-monthly{font-size:1.24rem;font-weight:600;color:var(--ink)}
 .plan-signup{margin:0;padding:.75rem .9rem;background:var(--bg);border-radius:var(--radius-sm);font-size:.9rem}
 .other-plan{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:1rem;padding:1.1rem 1.4rem;border:1px solid var(--line);border-radius:var(--radius)}
 .other-plan h3{margin:0;font-size:1.05rem}
