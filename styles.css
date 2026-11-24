@@ -429,3 +429,12 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .opened-mail-join{position:absolute;left:1.67%;top:1.7%;width:12.83%;height:11.43%;min-height:44px;min-width:44px;border:2px solid #82a8ff;border-radius:9px;background:transparent;cursor:pointer}
 .opened-mail-join:hover{box-shadow:0 0 0 3px #457dff60}
 @media(max-width:700px){.opened-mail-capture img{width:600px;max-width:none}.opened-mail-join{left:10px;top:6px;width:77px;height:44px}}
+
+.opened-mail-capture{overflow-x:auto}
+.opened-mail-canvas{position:relative;width:100%;min-width:600px}
+.opened-mail-canvas img{width:100%;max-width:100%;height:auto}
+.mail-help-link,.mail-email-link{position:absolute;top:80.6%;height:6.3%;min-height:32px;border-radius:3px}
+.mail-help-link{left:24.8%;width:11.6%}
+.mail-email-link{left:51.2%;width:23.5%}
+.mail-help-link:hover,.mail-email-link:hover{background:#175bff18;outline:1px solid #175bff}
+@media(max-width:700px){.opened-mail-join{left:1.67%;top:1.7%;width:12.83%;height:11.43%}}
