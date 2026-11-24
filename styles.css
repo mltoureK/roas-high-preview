@@ -445,3 +445,13 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .signin-bottom{position:relative}
 .signin-continue{position:absolute;left:5.5%;top:67.7%;width:89%;height:16.1%;min-height:32px;cursor:pointer;border:2px solid #82a8ff;border-radius:7px;background:transparent}
 .signin-continue:hover{box-shadow:0 0 0 3px #457dff60}
+
+.workspace-menu{background:#eef0f5;border:1px solid var(--line);border-radius:10px;padding:1rem;min-height:270px}
+.workspace-menu summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:1rem;font-size:.85rem}
+.account-avatar{padding:.7rem;background:#174eab;color:white;border-radius:50%;font-weight:700}
+.workspace-menu-body{margin-left:auto;max-width:330px;background:white;border-radius:8px;overflow:hidden;margin-top:.5rem}
+.sample-account{padding:.6rem 1rem;font-size:.85rem;color:#333}
+.workspace-menu-picture{position:relative}
+.workspace-menu-picture img{width:100%;height:auto}
+.workspace-select-hit{position:absolute;top:0;left:5.2%;width:91.5%;height:39%;min-height:44px;border:2px solid #82a8ff;border-radius:4px;background:transparent;cursor:pointer}
+.workspace-select-hit:hover{background:#175bff15}
