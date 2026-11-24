@@ -423,3 +423,9 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .gmail-invite-hit span{position:absolute;right:.4rem;bottom:.3rem;padding:.15rem .4rem;background:#174ac1;border-radius:4px;font-size:.7rem}
 .gmail-invite-hit:hover{background:#89afff20}
 @media(max-width:700px){.gmail-capture img{width:calc(100% + 110px);max-width:none;transform:translateX(-110px)}.gmail-capture{min-height:115px}.gmail-invite-hit{left:13%;width:87%;top:auto;bottom:0;height:44px}}
+
+.opened-mail-capture{position:relative;background:white;border:1px solid var(--line);overflow:hidden;border-radius:8px}
+.opened-mail-capture img{width:100%;height:auto}
+.opened-mail-join{position:absolute;left:1.67%;top:1.7%;width:12.83%;height:11.43%;min-height:44px;min-width:44px;border:2px solid #82a8ff;border-radius:9px;background:transparent;cursor:pointer}
+.opened-mail-join:hover{box-shadow:0 0 0 3px #457dff60}
+@media(max-width:700px){.opened-mail-capture img{width:600px;max-width:none}.opened-mail-join{left:10px;top:6px;width:77px;height:44px}}
