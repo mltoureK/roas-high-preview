@@ -324,3 +324,18 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
   .stage-body{padding:1rem}
   .hero{padding:1.5rem 0 2.25rem}
 }
+
+/* First-launch walkthrough */
+.launch-card{max-width:46rem;margin:auto;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.launch-card .launch-content{padding:clamp(1.2rem,4vw,2.5rem)}
+.launch-content h3{font-size:clamp(1.45rem,3vw,2rem);line-height:1.15;letter-spacing:-.035em;margin:0}
+.launch-content p{color:var(--ink-2);margin:.65rem 0 1.3rem}
+.launch-content .mail-from{margin-bottom:1.3rem}
+.launch-content h3:focus{outline:none}
+.tour-position{font-size:.82rem;color:var(--ink-2)}
+.facebook-scene{background:#f2f4f7}
+.facebook-scene .sim-bar{background:white}
+.fb-wordmark{color:#0866ff;font-size:1.5rem;font-weight:750;letter-spacing:-.065em}
+.studio-avatar{display:grid;place-items:center;background:#293f40;color:#fff;border:3px solid white;border-radius:50%;width:3.6rem;height:3.6rem;font:1.4rem Georgia,serif}
+.facebook-scene p{margin:.35rem 0 1.2rem}
+.facebook-scene .btn{margin-top:1.4rem}

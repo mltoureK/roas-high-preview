@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=handoff2">
+<link rel="stylesheet" href="styles.css?v=first-launch">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,7 +43,7 @@
         <p>Hi Alex, we’ve prepared your browser profile. Here’s how to open it.</p>
         <ol>
           <li>Open your Multilogin invitation and choose <strong>Join workspace</strong>.</li>
-          <li>In <strong>Studio North</strong>, connect the desktop agent if prompted.</li>
+          <li>New to Multilogin? Install the desktop app and sign in with the same account you used to join.</li>
           <li>Open <strong>Profiles → Shared folder</strong>. Find <strong>Studio North</strong> and press <strong>Start</strong>.</li>
         </ol>
         <p>Need a hand? Reply here with the step you reached.</p>
@@ -102,16 +102,16 @@
       <div class="stage-body">
         <section id="paths" aria-labelledby="paths-heading">
           <div class="paths-head">
-            <h2 id="paths-heading">Walk through your first setup</h2>
+            <h2 id="paths-heading">Try your first launch</h2>
           </div>
           <div class="paths-grid">
             <button type="button" class="path-card" id="new-path">
               <strong>New to Multilogin</strong>
-              <span class="path-go">Follow the welcome email to first launch →</span>
+              <span class="path-go">Start with the invitation email →</span>
             </button>
-            <button type="button" class="path-card" data-launch="profiles">
+            <button type="button" class="path-card" id="returning-path">
               <strong>Already use Multilogin?</strong>
-              <span class="path-go">Skip straight to Studio North →</span>
+              <span class="path-go">Open the workspace →</span>
             </button>
           </div>
         </section>
@@ -119,13 +119,56 @@
         <div id="guided" hidden>
           <div class="guide-top">
             <button type="button" class="btn-subtle" id="switch-path">← Switch path</button>
-            <nav class="stages-nav" id="stages" aria-label="Walkthrough steps"></nav>
+            <span class="tour-position" id="tour-position"></span>
           </div>
-          <progress class="guide-progress" id="tour-progress" max="7" value="1" aria-label="Walkthrough progress"></progress>
-          <div id="scene"></div>
-          <div class="guide-foot">
-            <button type="button" class="btn-ghost" id="previous">← Back</button>
-          </div>
+
+          <section class="launch-card" data-screen="join" hidden>
+            <div class="sim-bar"><span>Inbox</span><small>Invitation email</small></div>
+            <div class="launch-content">
+              <div class="mail-from"><span class="mail-avatar" aria-hidden="true">M</span><strong>Multilogin</strong></div>
+              <h3 tabindex="-1">Join the Studio North workspace</h3>
+              <p>ROAS HIGH invited you to the workspace where your browser profile is ready.</p>
+              <button type="button" class="btn" data-next="install">Join workspace</button>
+            </div>
+          </section>
+
+          <section class="launch-card" data-screen="install" hidden>
+            <div class="sim-bar"><span>Multilogin desktop</span><small>One-time setup</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Set up the desktop app</h3>
+              <div id="install-prompt">
+                <p>Install Multilogin on your computer, then sign in.</p>
+                <button type="button" class="btn" id="install-app">Install Multilogin</button>
+              </div>
+              <div id="signin-prompt" hidden>
+                <p>The app is ready. Sign in with the same account you used to accept the invitation.</p>
+                <button type="button" class="btn" data-next="workspace">Sign in</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="launch-card" data-screen="workspace" hidden>
+            <div class="sim-bar"><span>Multilogin desktop</span><small>Profiles</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Studio North workspace</h3>
+              <p>Profiles / Shared folder</p>
+              <div class="profile-row">
+                <div><b>Studio North</b><small>Browser profile · Ready</small></div>
+                <button type="button" class="btn" data-next="facebook">Start</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="launch-card facebook-scene" data-screen="facebook" hidden>
+            <div class="sim-bar"><span class="fb-wordmark">facebook</span><small>Workspace preview</small></div>
+            <div class="launch-content">
+              <span class="studio-avatar" aria-hidden="true">SN</span>
+              <p>Studio North</p>
+              <h3 tabindex="-1">You’ve reached Facebook.</h3>
+              <a class="btn" href="#request">Get setup details</a>
+            </div>
+          </section>
+          <div class="guide-foot"><button type="button" class="btn-subtle" id="previous">← Back</button></div>
         </div>
       </div>
     </div>
@@ -142,7 +185,7 @@
           <ol>
             <li>Choose email or WhatsApp.</li>
             <li>Review the written quote, scope, and billing dates.</li>
-            <li>If you proceed, follow the workspace invitation and connect your local agent if needed.</li>
+            <li>Accept the workspace invitation. If you’re new to Multilogin, install the desktop app and sign in with the same account.</li>
             <li>Find the profile named in your guide and press Start. Complete any sign-in prompts for your authorized access.</li>
           </ol>
         </details>
@@ -237,29 +280,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<dialog id="explorer" aria-labelledby="explorer-title">
-  <header class="lab-header">
-    <div>
-      <small>Sample workspace</small>
-      <h2 id="explorer-title">Studio North workspace</h2>
-    </div>
-    <button type="button" class="lab-close" id="exit-lab" aria-label="Close workspace demo">Close ✕</button>
-  </header>
-  <div id="coach" class="coach-bar" aria-live="polite"></div>
-  <div class="lab-shell">
-    <nav id="lab-nav" class="lab-nav" aria-label="Workspace tools"></nav>
-    <section id="lab-pane" class="lab-pane" aria-label="Selected tool"></section>
-  </div>
-</dialog>
-
-<dialog id="lightbox" aria-label="Reference screenshot">
-  <div class="lb-top">
-    <span id="lightbox-caption">Reference screenshot</span>
-    <button type="button" class="btn-ghost" id="close-lightbox">Close image</button>
-  </div>
-  <img alt="">
-</dialog>
-
-<script src="demo.js" defer></script>
+<script src="demo.js?v=first-launch" defer></script>
 </body>
 </html>
