@@ -3,16 +3,16 @@ const guided = document.getElementById('guided');
 const panels = [...guided.querySelectorAll('[data-screen]')];
 const progress = document.getElementById('tour-position');
 let returning = true;
-let current = 'folder';
+let current = 'workspace';
 
 function renderStep(step) {
   current = step;
   document.getElementById('new-path').hidden = !['folder', 'workspace'].includes(step);
-  document.getElementById('previous').hidden = returning && step === 'folder';
+  document.getElementById('previous').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', folder: '1 of 2', workspace: '2 of 2', facebook: 'Complete' };
-  progress.textContent = returning && step === 'folder' ? '' : labels[step];
+  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', folder: 'Find your profile', workspace: 'Ready to launch', facebook: 'Complete' };
+  progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   if (step === 'select') {
     document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-closed.png';
     document.getElementById('open-workspace-menu').hidden = false;
@@ -34,7 +34,7 @@ function renderStep(step) {
 
 function openPath(existing) {
   returning = existing;
-  renderStep(existing ? 'folder' : 'inbox');
+  renderStep(existing ? 'workspace' : 'inbox');
 }
 
 document.getElementById('new-path').onclick = () => openPath(false);
@@ -43,7 +43,7 @@ for (const button of guided.querySelectorAll('[data-next]')) {
 }
 document.getElementById('previous').onclick = () => {
   if (current === 'facebook') return renderStep('workspace');
-  if (current === 'workspace') return renderStep('folder');
+  if (current === 'workspace') return returning ? openPath(true) : renderStep('folder');
   if (current === 'folder') return returning ? openPath(true) : renderStep('select');
   if (current === 'setup') return renderStep('select');
   if (current === 'help' || current === 'installed') return renderStep('setup');
