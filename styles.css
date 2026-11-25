@@ -600,3 +600,11 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 
 .profile-source-crop{position:relative;width:100%;aspect-ratio:1020/210;overflow:hidden;border-radius:8px}.inline-demo .profile-source-crop img{position:absolute;left:-66.76%;top:-132.38%;width:278.43%;max-width:none;height:auto;border-radius:0}
 @media(max-width:700px){.profile-source-crop{width:534px;height:110px;aspect-ratio:auto}.inline-demo .profile-source-crop img{width:1486.8px;height:auto}}
+
+/* The beginner preview reveals folders only after choosing Browser. */
+.browser-tab-preview .mobile-folders-mask{position:absolute;left:.8%;top:31.8%;width:18.8%;bottom:32%;background:#202020}
+.browser-tab-preview .mobile-profile-mask{position:absolute;left:20.2%;right:.3%;top:21.6%;height:7%;background:#202020}
+.browser-switch-tabs{position:absolute;left:1.5%;top:11.5%;width:17.3%;height:4%;display:flex;align-items:stretch;background:#333;border-radius:5px;padding:3px;line-height:1.2;font:600 clamp(11px,1.2vw,18px)/1.2 Arial,sans-serif}
+.browser-switch-tabs>span{display:flex;align-items:center;justify-content:center;width:50%;border-radius:4px;background:#bcd0fa;color:#202020}
+.browser-switch-tabs>button{position:relative;width:50%;border:2px solid #a9c7ff;border-radius:4px;background:#333;color:#fff;cursor:pointer;box-shadow:0 0 0 2px #065bf5;font:inherit}
+.browser-switch-tabs .click-coach{left:0;bottom:calc(100% + 8px);font:600 11px/1.2 var(--font)}
