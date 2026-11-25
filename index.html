@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=signup-preview">
+<link rel="stylesheet" href="styles.css?v=signup-download">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -117,9 +117,36 @@
                 <button type="button" class="signup-sample" id="try-sample-signup">Fill sample password ↓</button>
                 <label class="signup-terms"><input type="checkbox" id="signup-terms"> <span>I accept Multilogin Terms of Service <small>(demo only)</small></span></label>
                 <p id="signup-status" role="status"></p>
-                <button type="button" class="signup-create" id="signup-create" data-next="select" disabled>Create</button>
+                <button type="button" class="signup-create" id="signup-create" data-next="verify" disabled>Create</button>
                 <button type="button" class="signup-existing" data-next="signin">Already have an account? Sign in</button>
               </div>
+            </div>
+          </section>
+
+          <section class="launch-card" data-screen="verify" hidden>
+            <div class="sim-bar"><span>Multilogin</span><small>Email verification</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Verify your email.</h3>
+              <p>Enter the verification code sent to your invitation email. Once verified, you’ll choose the app for your computer.</p>
+              <div class="verification-preview"><span>Sample verification code</span><strong>1 2 3 4 5 6</strong><small>Demo only · No email is sent.</small><button type="button" class="btn" data-next="downloadapp">Preview verification →</button></div>
+            </div>
+          </section>
+          <section class="launch-card" data-screen="downloadapp" hidden>
+            <div class="sim-bar"><span>Multilogin</span><small>Download app</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Download Multilogin for your computer.</h3>
+              <p>Choose Windows, macOS or Linux. Then install the app and sign in with the account you just created.</p>
+              <img class="signup-download-screen" src="assets/signup-download-app.png" width="1540" height="1114" alt="Actual Multilogin Download app screen after email verification, with Windows, macOS and Linux download options">
+              <p class="signup-demo-note">Choose your computer to preview the next step. This demo won’t download anything.</p>
+              <div class="download-os-choices"><button type="button" class="btn" data-next="appinstalled">Windows →</button><button type="button" class="btn" data-next="appinstalled">macOS →</button><button type="button" class="btn" data-next="appinstalled">Linux →</button></div>
+            </div>
+          </section>
+          <section class="launch-card" data-screen="appinstalled" hidden>
+            <div class="sim-bar"><span>Multilogin desktop</span><small>After installation</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">Open the app and sign in.</h3>
+              <p>Use the email and password you just created. Next, choose your ROAS HIGH workspace from the account menu.</p>
+              <button type="button" class="btn" data-next="select">Preview choosing your workspace →</button>
             </div>
           </section>
 
@@ -328,6 +355,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=signup-preview" defer></script>
+<script src="demo.js?v=signup-download" defer></script>
 </body>
 </html>
