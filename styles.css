@@ -494,3 +494,15 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .reason-group .buy-reasons li[data-focused]{opacity:1;background:color-mix(in srgb,currentColor 7%,transparent);border-color:currentColor}
 .reason-group .buy-reasons li:focus-within{opacity:1}
 @media(prefers-reduced-motion:reduce){.reason-group .buy-reasons li{transition:none}}
+
+/* Next-click labels remain attached to the screenshot controls. */
+.click-coach{position:absolute;bottom:calc(100% + 6px);left:0;display:flex;align-items:center;gap:.4rem;width:max-content;max-width:220px;padding:.35rem .55rem;border-radius:5px;background:#172d65;color:#fff;font:600 .75rem/1.2 var(--font);box-shadow:0 2px 8px #0002;pointer-events:none;text-align:left}
+.click-coach b{font-size:1.1rem;line-height:1}
+.gmail-invite-hit .click-coach{right:8px;left:auto;background:#172d65;font-size:.75rem;bottom:calc(100% + 6px)}
+.opened-mail-join .click-coach{bottom:auto;top:calc(100% + 5px)}
+.opened-mail-join .click-coach b{transform:rotate(180deg)}
+.profile-play .click-coach{left:-4px}
+.workspace-select-hit .click-coach{bottom:auto;top:calc(100% + 5px)}
+.workspace-select-hit .click-coach b{transform:rotate(180deg)}
+.workspace-menu summary{outline:2px solid #82a8ff;outline-offset:3px;border-radius:6px}
+@media(max-width:700px){.click-coach{font-size:.66rem;padding:.25rem .4rem;max-width:180px}.gmail-invite-hit .click-coach{font-size:.66rem}}
