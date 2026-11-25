@@ -188,3 +188,12 @@ document.getElementById('open-workspace-menu').onclick = () => {
   target.hidden = false;
   target.focus({preventScroll:true});
 };
+
+const fullAppDialog = document.getElementById('full-app-dialog');
+document.getElementById('view-full-app').onclick = () => fullAppDialog.showModal();
+document.getElementById('close-full-app').onclick = () => fullAppDialog.close();
+fullAppDialog.addEventListener('click', event => {
+  if (event.target !== fullAppDialog) return;
+  const bounds = fullAppDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) fullAppDialog.close();
+});

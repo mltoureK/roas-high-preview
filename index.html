@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=desktop-signin">
+<link rel="stylesheet" href="styles.css?v=full-app">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -234,6 +234,7 @@
                 <img src="assets/studio-north-profile.png" width="1020" height="210" alt="Multilogin profile list showing FB Page Creator_02 in the Studio North folder">
                 <button type="button" class="profile-play" aria-label="Start" data-next="facebook"><span class="click-coach" aria-hidden="true">Press play <b>↓</b></span></button>
               </div>
+              <button type="button" class="btn-subtle full-app-trigger" id="view-full-app" aria-haspopup="dialog">View full app screen ↗</button>
             </div>
           </section>
 
@@ -364,6 +365,11 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=signup-download" defer></script>
+<dialog class="full-app-dialog" id="full-app-dialog" aria-labelledby="full-app-title">
+  <div class="full-app-heading"><div><h2 id="full-app-title">Where to find Play</h2><p>Look beside FB Page Creator_02 in the Studio North folder.</p></div><button type="button" id="close-full-app" aria-label="Close full app screen">Close ×</button></div>
+  <div class="full-app-image"><img src="assets/multilogin-full-app.png" width="2840" height="1724" alt="Full Multilogin desktop screenshot showing the navigation toolbar, Studio North folder, and FB Page Creator_02 profile"><span class="full-app-play-highlight" aria-label="Play button beside FB Page Creator_02"><span>Play ↓</span></span></div>
+  <p class="full-app-footer">Original app screenshot · Close this view to try the highlighted Play button in the demo.</p>
+</dialog>
+<script src="demo.js?v=full-app" defer></script>
 </body>
 </html>
