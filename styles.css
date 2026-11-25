@@ -478,3 +478,11 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .access-terms{font-size:.9rem}
 .access-details{margin:.8rem 0;font-size:.9rem}.access-details summary{cursor:pointer;font-weight:600}
 .managed-plans small{display:block;color:#344567;font-size:.8rem}
+
+.buy-reasons{margin:1.5rem 0 0;padding-left:1.75rem}
+.buy-reasons li{padding:.65rem 0 .65rem .4rem;border-top:1px solid color-mix(in srgb,currentColor 20%,transparent)}
+.buy-reasons li::marker{font: .85rem var(--mono);color:var(--stage-muted)}
+.buy-reasons strong{font-weight:600;font-size:clamp(1rem,1.7vw,1.2rem)}
+.buy-reasons span{display:block;color:var(--stage-muted);font-size:.9rem;margin-top:.2rem}
+.reason-group:first-of-type .buy-reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 2rem;max-width:800px}
+@media(max-width:600px){.reason-group:first-of-type .buy-reasons{grid-template-columns:1fr}}
