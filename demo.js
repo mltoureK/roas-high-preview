@@ -113,3 +113,33 @@ document.getElementById('try-sample-login').onclick = () => {
   continueButton.classList.add('sample-ready');
   continueButton.focus({preventScroll:true});
 };
+
+const benefitRows = [...document.querySelectorAll('.buy-reasons li')];
+let focusFramePending = false;
+function focusNearestBenefit() {
+  focusFramePending = false;
+  const targetY = window.innerHeight * 0.52;
+  const visibleRows = benefitRows.filter(row => {
+    const bounds = row.getBoundingClientRect();
+    return bounds.bottom > 70 && bounds.top < window.innerHeight;
+  });
+  let nearest = null;
+  let distance = Infinity;
+  for (const row of visibleRows) {
+    const bounds = row.getBoundingClientRect();
+    const nextDistance = Math.abs(bounds.top + bounds.height / 2 - targetY);
+    if (nextDistance < distance) {
+      nearest = row;
+      distance = nextDistance;
+    }
+  }
+  for (const row of benefitRows) row.toggleAttribute('data-focused', row === nearest);
+}
+function queueBenefitFocus() {
+  if (focusFramePending) return;
+  focusFramePending = true;
+  requestAnimationFrame(focusNearestBenefit);
+}
+window.addEventListener('scroll', queueBenefitFocus, {passive:true});
+window.addEventListener('resize', queueBenefitFocus);
+focusNearestBenefit();
