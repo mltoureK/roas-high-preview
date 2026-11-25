@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=signup-download">
+<link rel="stylesheet" href="styles.css?v=desktop-signin">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -143,11 +143,19 @@
             </div>
           </section>
           <section class="launch-card" data-screen="appinstalled" hidden>
-            <div class="sim-bar"><span>Multilogin desktop</span><small>After installation</small></div>
+            <div class="sim-bar"><span>Multilogin desktop</span><small>Desktop sign-in preview</small></div>
             <div class="launch-content">
               <h3 tabindex="-1">Open the app and sign in.</h3>
               <p>Use the email and password you just created. Next, choose your ROAS HIGH workspace from the account menu.</p>
-              <button type="button" class="btn" data-next="select">Preview choosing your workspace →</button>
+              <div class="desktop-login-preview" aria-label="Multilogin desktop sign-in preview with sample details">
+                <h4>Sign in</h4>
+                <div class="desktop-login-field"><span>Email</span><div>you@example.com</div></div>
+                <div class="desktop-login-field"><span>Password</span><div class="desktop-password">•••••••••••• <span aria-hidden="true">◉</span></div></div>
+                <label class="desktop-remember"><input type="checkbox" checked> Remember me</label>
+                <p class="desktop-login-note">Sample details · Use your newly created account in the actual app.</p>
+                <span class="desktop-next-hint">Click Continue ↓</span>
+                <button type="button" class="desktop-login-continue" data-next="select">Continue</button>
+              </div>
             </div>
           </section>
 
