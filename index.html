@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=click-guides">
+<link rel="stylesheet" href="styles.css?v=real-toolbar">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -123,16 +123,14 @@
             <div class="launch-content">
               <h3 tabindex="-1">Open your ROAS HIGH workspace</h3>
               <p>Tap M ▾ to open the account menu. Then choose Support@Roashigh.com.</p>
-              <details class="workspace-menu">
-                <summary aria-label="Open account menu"><span>Multilogin</span><span class="account-avatar">M ▾</span></summary>
-                <div class="workspace-menu-body">
-                  <div class="sample-account">you@example.com</div>
-                  <div class="workspace-menu-picture">
-                    <img src="assets/workspace-selection.png" width="420" height="205" alt="Account menu showing Support@Roashigh.com and Sign out">
-                    <button type="button" class="workspace-select-hit" data-next="setup" aria-label="Select ROAS HIGH workspace"><span class="click-coach" aria-hidden="true">Choose workspace <b>↓</b></span></button>
-                  </div>
+              <div class="workspace-screenshot-scroll" aria-label="Multilogin toolbar preview" tabindex="0">
+                <div class="workspace-screenshot" id="workspace-screenshot">
+                  <img id="workspace-toolbar-image" src="assets/workspace-toolbar-closed.png" width="2880" height="600" alt="Multilogin dashboard with the M account menu at the top right">
+                  <button type="button" class="real-avatar-hit" id="open-workspace-menu" aria-label="Open account menu" aria-expanded="false"><span class="click-coach" aria-hidden="true">Account menu ↑</span></button>
+                  <button type="button" class="real-workspace-hit" id="select-real-workspace" data-next="setup" aria-label="Select ROAS HIGH workspace" hidden><span class="click-coach" aria-hidden="true">Choose workspace ↑</span></button>
                 </div>
-              </details>
+              </div>
+              <small class="workspace-pan-hint">Swipe across the screenshot to explore the toolbar.</small>
             </div>
           </section>
 
@@ -306,6 +304,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=scroll-focus" defer></script>
+<script src="demo.js?v=real-toolbar" defer></script>
 </body>
 </html>

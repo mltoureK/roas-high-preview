@@ -13,6 +13,14 @@ function renderStep(step) {
   for (const panel of panels) panel.hidden = panel !== active;
   const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', workspace: 'Ready to launch', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
+  if (step === 'select') {
+    document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-closed.png';
+    document.getElementById('open-workspace-menu').hidden = false;
+    document.getElementById('open-workspace-menu').setAttribute('aria-expanded', 'false');
+    document.getElementById('select-real-workspace').hidden = true;
+    const viewport = document.querySelector('.workspace-screenshot-scroll');
+    viewport.scrollLeft = viewport.scrollWidth;
+  }
   if (step === 'signin') {
     document.getElementById('sample-login-email').textContent = 'Sample email';
     document.getElementById('sample-login-password').hidden = true;
@@ -143,3 +151,11 @@ function queueBenefitFocus() {
 window.addEventListener('scroll', queueBenefitFocus, {passive:true});
 window.addEventListener('resize', queueBenefitFocus);
 focusNearestBenefit();
+
+document.getElementById('open-workspace-menu').onclick = () => {
+  document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-open.png';
+  document.getElementById('open-workspace-menu').setAttribute('aria-expanded', 'true');
+  const target = document.getElementById('select-real-workspace');
+  target.hidden = false;
+  target.focus({preventScroll:true});
+};
