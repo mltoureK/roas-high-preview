@@ -11,7 +11,7 @@ function renderStep(step) {
   document.getElementById('previous').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { inbox: '1 of 3', join: '1 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', workspace: 'Ready to launch', facebook: 'Complete' };
+  const labels = { inbox: '1 of 3', join: '1 of 3', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', workspace: 'Ready to launch', facebook: 'Complete' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   if (step === 'select') {
     document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-closed.png';
@@ -21,6 +21,7 @@ function renderStep(step) {
     const viewport = document.querySelector('.workspace-screenshot-scroll');
     viewport.scrollLeft = viewport.scrollWidth;
   }
+  if (step === 'signup') resetSignup();
   if (step === 'signin') {
     document.getElementById('sample-login-email').textContent = 'Sample email';
     document.getElementById('sample-login-password').hidden = true;
@@ -45,11 +46,36 @@ document.getElementById('previous').onclick = () => {
   if (current === 'workspace') return renderStep('setup');
   if (current === 'setup') return renderStep('select');
   if (current === 'help' || current === 'installed') return renderStep('setup');
-  if (current === 'select') return renderStep('signin');
-  if (current === 'signin') return renderStep('join');
+  if (current === 'select') return renderStep('signup');
+  if (current === 'signin') return renderStep('signup');
+  if (current === 'signup') return renderStep('join');
   if (current === 'join') return renderStep('inbox');
   openPath(true);
 };
+
+let signupSampleFilled = false;
+function resetSignup() {
+  signupSampleFilled = false;
+  document.getElementById('signup-password').innerHTML = 'Enter password <span aria-hidden="true">◉</span>';
+  document.getElementById('signup-repeat').innerHTML = 'Enter password <span aria-hidden="true">◉</span>';
+  document.getElementById('signup-terms').checked = false;
+  document.getElementById('signup-create').disabled = true;
+  document.getElementById('try-sample-signup').hidden = false;
+  document.getElementById('signup-status').textContent = '';
+}
+function updateSignup() {
+  const ready = signupSampleFilled && document.getElementById('signup-terms').checked;
+  document.getElementById('signup-create').disabled = !ready;
+  document.getElementById('signup-status').textContent = ready ? 'Click Create to preview your workspace.' : 'Tick the demo checkbox to continue.';
+}
+document.getElementById('try-sample-signup').onclick = () => {
+  signupSampleFilled = true;
+  document.getElementById('signup-password').textContent = '••••••••••••';
+  document.getElementById('signup-repeat').textContent = '••••••••••••';
+  document.getElementById('try-sample-signup').hidden = true;
+  updateSignup();
+};
+document.getElementById('signup-terms').onchange = updateSignup;
 
 function openLegacyLink() {
   if (location.hash !== '#join' && location.hash !== '#ad-accounts') return;

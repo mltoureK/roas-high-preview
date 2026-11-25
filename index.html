@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=gmail-logo">
+<link rel="stylesheet" href="styles.css?v=signup-preview">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -94,11 +94,31 @@
                 <div class="email-body">
                   <p>Hi!</p>
                   <p><a href="mailto:support@roashigh.com">Support@Roashigh.com</a> invited you to join a Multilogin workspace.</p>
-                  <div class="email-join-area"><span class="email-next-hint">Click Join to continue ↓</span><button type="button" class="email-join-button" data-next="signin" aria-label="Join workspace">Join</button></div>
+                  <div class="email-join-area"><span class="email-next-hint">Click Join to continue ↓</span><button type="button" class="email-join-button" data-next="signup" aria-label="Join workspace">Join</button></div>
                   <p>Once you're in, use your account icon in the top-right corner to switch workspaces. You can also set a default workspace in <strong>Account settings.</strong></p>
                   <div class="email-workspace-example" aria-label="Example workspace menu"><div class="email-example-top">● ⌄</div><div>you@example.com</div><div class="email-example-selected">Support@Roashigh.com</div><div class="email-example-signout">Sign out</div></div>
                   <p class="email-support">Need a hand? Check our <a href="https://multilogin.com/help" target="_blank" rel="noopener noreferrer" aria-label="Open Multilogin help center">help center</a> or email us at <a href="mailto:support@multilogin.com" aria-label="Email Multilogin support">support@multilogin.com</a>.</p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="launch-card" data-screen="signup" hidden>
+            <div class="sim-bar"><span>Multilogin</span><small>Sign-up preview</small></div>
+            <div class="launch-content">
+              <h3 tabindex="-1">New to Multilogin? Create your account.</h3>
+              <p>Your invitation email becomes your username. Set a password, repeat it, then click Create to join the workspace.</p>
+              <p class="signup-demo-note">Interactive preview · Use the sample password below.</p>
+              <div class="signup-preview">
+                <h4>Sign up to join workspace</h4>
+                <div class="signup-email-note">Email <strong>you@example.com</strong> will be your username</div>
+                <div class="signup-field"><span>Password</span><div id="signup-password">Enter password <span aria-hidden="true">◉</span></div></div>
+                <div class="signup-field"><span>Repeat password</span><div id="signup-repeat">Enter password <span aria-hidden="true">◉</span></div></div>
+                <button type="button" class="signup-sample" id="try-sample-signup">Fill sample password ↓</button>
+                <label class="signup-terms"><input type="checkbox" id="signup-terms"> <span>I accept Multilogin Terms of Service <small>(demo only)</small></span></label>
+                <p id="signup-status" role="status"></p>
+                <button type="button" class="signup-create" id="signup-create" data-next="select" disabled>Create</button>
+                <button type="button" class="signup-existing" data-next="signin">Already have an account? Sign in</button>
               </div>
             </div>
           </section>
@@ -308,6 +328,6 @@
   <strong>ROAS HIGH</strong>
 </footer>
 
-<script src="demo.js?v=real-toolbar" defer></script>
+<script src="demo.js?v=signup-preview" defer></script>
 </body>
 </html>
