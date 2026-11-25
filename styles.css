@@ -597,3 +597,6 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .folder-overview-image{position:relative;min-width:800px;line-height:0}.folder-overview-image>img{display:block;width:100%;height:auto}
 .folder-open-hit{position:absolute;left:1.5%;top:43.5%;width:17.3%;height:4.2%;border:3px solid #a9c7ff;border-radius:6px;background:#065bf51a;cursor:pointer;box-shadow:0 0 0 2px #065bf5}.folder-open-hit:hover{background:#065bf54d}.folder-open-hit .click-coach{left:0;bottom:calc(100% + 8px)}
 @media(max-width:600px){.folder-overview-scroll{height:280px}.folder-open-hit{min-height:36px}}
+
+.profile-source-crop{position:relative;width:100%;aspect-ratio:1020/210;overflow:hidden;border-radius:8px}.inline-demo .profile-source-crop img{position:absolute;left:-66.76%;top:-132.38%;width:278.43%;max-width:none;height:auto;border-radius:0}
+@media(max-width:700px){.profile-source-crop{width:534px;height:110px;aspect-ratio:auto}.inline-demo .profile-source-crop img{width:1486.8px;height:auto}}
