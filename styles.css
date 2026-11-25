@@ -516,3 +516,11 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .real-avatar-hit .click-coach,.real-workspace-hit .click-coach{left:auto;right:0;bottom:auto;top:calc(100% + 5px)}
 .workspace-pan-hint{display:none}
 @media(max-width:1000px){.workspace-pan-hint{display:block;margin-top:.5rem;color:var(--ink-2)}}
+
+.profile-overview{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#e9edf5}
+.profile-overview-image{position:relative;width:100%}
+.profile-overview-image img{width:100%;height:auto}
+.context-play{position:absolute;left:26%;top:52.3%;width:2.1%;height:9.2%;min-width:32px;min-height:32px;background:transparent;border:2px solid #82a8ff;border-radius:7px;cursor:pointer}
+.context-play .click-coach{left:0;bottom:calc(100% + 5px)}
+.profile-overview.is-zoomed .profile-overview-image{min-width:1100px}
+@media(max-width:700px){.context-play{min-width:44px;min-height:44px;transform:translate(-8px,-10px)}.context-play .click-coach{font-size:.65rem}}

@@ -159,3 +159,12 @@ document.getElementById('open-workspace-menu').onclick = () => {
   target.hidden = false;
   target.focus({preventScroll:true});
 };
+
+document.getElementById('zoom-profile').onclick = () => {
+  const viewport = document.getElementById('profile-context');
+  const zoomed = viewport.classList.toggle('is-zoomed');
+  const button = document.getElementById('zoom-profile');
+  button.setAttribute('aria-pressed', String(zoomed));
+  button.textContent = zoomed ? 'Show full workspace' : 'Zoom to play';
+  viewport.scrollLeft = zoomed ? Math.max(0, viewport.scrollWidth * 0.27 - viewport.clientWidth * 0.25) : 0;
+};
