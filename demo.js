@@ -5,12 +5,68 @@ const progress = document.getElementById('tour-position');
 let returning = true;
 let current = 'workspace';
 
+const accountPicker = document.getElementById('ad-account-picker');
+const accountList = document.getElementById('workspace-accounts');
+const accountActions = accountPicker.querySelector('.account-actions');
+const sampleAccounts = {
+  primary: { name: 'Studio North · Primary', status: 'Setup verified' },
+  growth: { name: 'Studio North · Growth', status: 'Created in preview' },
+  retail: { name: 'Studio North · Retail', status: 'Added in preview' }
+};
+
+function selectAdAccount(key, announce = true) {
+  const account = sampleAccounts[key];
+  document.getElementById('selected-ad-account').textContent = account.name;
+  const status = document.getElementById('account-state');
+  status.textContent = account.status;
+  status.toggleAttribute('data-verified', key === 'primary');
+  for (const button of accountList.children) {
+    button.setAttribute('aria-pressed', String(button.dataset.account === key));
+  }
+  accountPicker.open = false;
+  document.getElementById('account-feedback').textContent = announce ? account.name + '. ' + account.status + '.' : '';
+  if (announce) accountPicker.querySelector('summary').focus();
+}
+
+function addAdAccountOption(key) {
+  const option = document.createElement('button');
+  option.type = 'button';
+  option.dataset.account = key;
+  option.textContent = sampleAccounts[key].name;
+  option.onclick = () => selectAdAccount(key);
+  accountList.append(option);
+}
+
+function resetAdAccountPreview() {
+  accountList.replaceChildren();
+  addAdAccountOption('primary');
+  for (const action of accountActions.children) action.hidden = false;
+  accountActions.hidden = false;
+  selectAdAccount('primary', false);
+}
+
+for (const action of accountActions.children) {
+  action.onclick = () => {
+    const key = action.dataset.addAccount;
+    addAdAccountOption(key);
+    action.hidden = true;
+    accountActions.hidden = !accountActions.querySelector('button:not([hidden])');
+    selectAdAccount(key);
+  };
+}
+accountPicker.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && accountPicker.open) {
+    accountPicker.open = false;
+    accountPicker.querySelector('summary').focus();
+  }
+});
+
 function renderStep(step) {
   current = step;
   document.getElementById('guide-foot').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', 'browser-tab': 'Find your profile', folder: 'Find your profile', workspace: 'Ready to launch', facebook: 'Complete' };
+  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', 'browser-tab': 'Find your profile', folder: 'Find your profile', workspace: 'Ready to launch', 'ads-manager': '' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   if (step === 'select') {
     document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-closed.png';
@@ -21,6 +77,7 @@ function renderStep(step) {
     viewport.scrollLeft = viewport.scrollWidth;
   }
   if (step === 'signup') resetSignup();
+  if (step === 'ads-manager') resetAdAccountPreview();
   if (step === 'signin') {
     document.getElementById('sample-login-email').textContent = 'Sample email';
     document.getElementById('sample-login-password').hidden = true;
@@ -41,7 +98,7 @@ for (const button of guided.querySelectorAll('[data-next]')) {
   button.onclick = () => renderStep(button.id === 'select-real-workspace' ? 'browser-tab' : button.dataset.next);
 }
 document.getElementById('previous').onclick = () => {
-  if (current === 'facebook') return renderStep('workspace');
+  if (current === 'ads-manager') return renderStep('workspace');
   if (current === 'workspace') return returning ? openPath(true) : renderStep('folder');
   if (current === 'folder') return renderStep('browser-tab');
   if (current === 'browser-tab') return renderStep('select');

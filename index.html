@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=workspace-launch">
+<link rel="stylesheet" href="styles.css?v=ads-manager-preview">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -262,17 +262,43 @@
               <p>Open a sample workspace we’ve prepared for you.</p>
               <div class="profile-capture">
                 <div class="profile-source-crop"><img src="assets/multilogin-approved-name.png" width="1610" height="978" alt="Multilogin profile list showing Studio North — Ads Workspace in the Studio North folder"></div>
-                <button type="button" class="profile-play" aria-label="Play: open the Studio North sample workspace" data-next="facebook"></button>
+                <button type="button" class="profile-play" aria-label="Play: open the Studio North sample workspace" data-next="ads-manager"></button>
                 <button type="button" class="full-app-trigger" id="view-full-app" aria-haspopup="dialog" aria-controls="full-app-dialog"><span>View full screen <b aria-hidden="true">⛶</b></span></button>
               </div>
               <button type="button" class="invitation-path" id="new-path">New to Multilogin? <strong>Start with the invitation <span aria-hidden="true">→</span></strong></button>
             </div>
           </section>
 
-          <section class="launch-card launch-result" data-screen="facebook" hidden>
+          <section class="launch-card launch-result" data-screen="ads-manager" hidden>
+            <div class="sim-bar"><span>Studio North</span><small>Sample workspace</small></div>
             <div class="launch-content">
-              <h3 tabindex="-1">Sample workspace</h3>
-              <p>You’ve finished the Studio North launch preview.</p>
+              <h3 tabindex="-1">Ads Manager</h3>
+              <p id="account-guide">Your first ad account is ready. Open the dropdown to try creating or adding another.</p>
+              <div class="account-console">
+                <div class="account-controls">
+                  <details id="ad-account-picker" class="account-picker">
+                    <summary aria-describedby="account-guide">
+                      <span class="account-initials" aria-hidden="true">SN</span>
+                      <span class="account-selection"><small>Ad account</small><strong id="selected-ad-account">Studio North · Primary</strong><span id="account-state" class="account-state" data-verified>Setup verified</span></span>
+                      <span class="account-caret" aria-hidden="true"></span>
+                    </summary>
+                    <div class="account-choices">
+                      <div id="workspace-accounts" role="group" aria-label="Workspace ad accounts"></div>
+                      <div class="account-actions">
+                        <button type="button" data-add-account="growth">Create new ad account</button>
+                        <button type="button" data-add-account="retail">Add existing ad account</button>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <div class="account-campaigns">
+                  <h4>Campaigns</h4>
+                  <table><thead><tr><th scope="col">Campaign name</th><th scope="col">Delivery</th><th scope="col">Amount spent</th></tr></thead>
+                    <tbody><tr><td colspan="3">No campaigns yet</td></tr></tbody>
+                  </table>
+                </div>
+              </div>
+              <span id="account-feedback" class="stage-reader-title" role="status"></span>
               <a class="btn" href="#request">Get setup details</a>
             </div>
           </section>
@@ -415,6 +441,6 @@
   <div class="full-app-image"><img src="assets/multilogin-approved-name.png" width="2840" height="1724" alt="Full Multilogin desktop screenshot showing the navigation toolbar, Studio North folder, and Studio North — Ads Workspace profile"><span class="full-app-play-highlight" aria-label="Play button beside Studio North — Ads Workspace"><span>Play ↓</span></span></div>
   <p class="full-app-footer">Original app screenshot · Close this view to try the highlighted Play button in the demo.</p>
 </dialog>
-<script src="demo.js?v=workspace-launch" defer></script>
+<script src="demo.js?v=ads-manager-preview" defer></script>
 </body>
 </html>
