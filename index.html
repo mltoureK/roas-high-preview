@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=ads-manager-preview">
+<link rel="stylesheet" href="styles.css?v=campaigns-workspace">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -270,36 +270,49 @@
           </section>
 
           <section class="launch-card launch-result" data-screen="ads-manager" hidden>
-            <div class="sim-bar"><span>Studio North</span><small>Sample workspace</small></div>
+            <div class="sim-bar"><span>Ads Manager</span><small>Sample workspace</small></div>
             <div class="launch-content">
-              <h3 tabindex="-1">Ads Manager</h3>
-              <p id="account-guide">Your first ad account is ready. Open the dropdown to try creating or adding another.</p>
               <div class="account-console">
-                <div class="account-controls">
-                  <details id="ad-account-picker" class="account-picker">
-                    <summary aria-describedby="account-guide">
-                      <span class="account-initials" aria-hidden="true">SN</span>
-                      <span class="account-selection"><small>Ad account</small><strong id="selected-ad-account">Studio North · Primary</strong><span id="account-state" class="account-state" data-verified>Setup verified</span></span>
-                      <span class="account-caret" aria-hidden="true"></span>
-                    </summary>
-                    <div class="account-choices">
-                      <div id="workspace-accounts" role="group" aria-label="Workspace ad accounts"></div>
-                      <div class="account-actions">
-                        <button type="button" data-add-account="growth">Create new ad account</button>
-                        <button type="button" data-add-account="retail">Add existing ad account</button>
+                <div class="console-rail" aria-hidden="true"><span>SN</span></div>
+                <div class="console-main">
+                  <div class="account-controls">
+                    <h3 tabindex="-1">Campaigns</h3>
+                    <details id="ad-account-picker" class="account-picker">
+                      <summary aria-describedby="account-guide">
+                        <span class="account-selection"><small>Ad account</small><strong id="selected-ad-account">Studio North · Primary</strong></span>
+                        <span class="account-caret" aria-hidden="true"></span>
+                      </summary>
+                      <div class="account-choices">
+                        <div class="portfolio-pane">
+                          <small>Business portfolios</small>
+                          <div class="portfolio-name"><span class="account-initials" aria-hidden="true">SN</span><strong>Studio North</strong></div>
+                        </div>
+                        <div class="portfolio-accounts">
+                          <div class="account-list-head"><strong>Ad accounts</strong><button type="button" id="manage-ad-accounts" aria-label="Add ad account" aria-expanded="false" aria-controls="account-actions"><span aria-hidden="true">+</span> Add</button></div>
+                          <div class="account-actions" id="account-actions" role="group" aria-label="Add an ad account" hidden>
+                            <button type="button" data-add-account="growth">Create a new ad account</button>
+                            <button type="button" data-add-account="retail">Add an existing ad account</button>
+                          </div>
+                          <div id="workspace-accounts" role="group" aria-label="Studio North ad accounts"></div>
+                        </div>
                       </div>
+                    </details>
+                  </div>
+                  <div class="account-context"><span id="account-state" class="account-state" data-verified>Setup verified</span><span id="account-guide">Open the ad account menu to see your options.</span></div>
+                  <div class="account-campaigns">
+                    <div class="campaign-views" role="group" aria-label="Campaign view">
+                      <button type="button" data-campaign-view="campaigns" aria-pressed="true">Campaigns</button>
+                      <button type="button" data-campaign-view="adsets" aria-pressed="false">Ad sets</button>
+                      <button type="button" data-campaign-view="ads" aria-pressed="false">Ads</button>
                     </div>
-                  </details>
-                </div>
-                <div class="account-campaigns">
-                  <h4>Campaigns</h4>
-                  <table><thead><tr><th scope="col">Campaign name</th><th scope="col">Delivery</th><th scope="col">Amount spent</th></tr></thead>
-                    <tbody><tr><td colspan="3">No campaigns yet</td></tr></tbody>
-                  </table>
+                    <table aria-label="Campaigns"><thead><tr><th scope="col" id="campaign-name-column">Campaign name</th><th scope="col">Delivery</th><th scope="col" class="results-col">Results</th><th scope="col" class="spend-col">Amount spent</th></tr></thead>
+                      <tbody><tr><td class="campaign-empty" colspan="4"><span class="empty-bars" aria-hidden="true"><i></i><i></i><i></i></span><strong id="campaign-empty-title">No campaigns yet</strong><small id="campaign-account-caption">Studio North · Primary</small></td></tr></tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
               <span id="account-feedback" class="stage-reader-title" role="status"></span>
-              <a class="btn" href="#request">Get setup details</a>
+              <div class="account-result-footer"><a class="btn" href="#request">Get setup details</a></div>
             </div>
           </section>
           <div class="guide-foot" id="guide-foot" hidden><button type="button" class="btn-subtle" id="previous">← Back</button></div>
@@ -441,6 +454,6 @@
   <div class="full-app-image"><img src="assets/multilogin-approved-name.png" width="2840" height="1724" alt="Full Multilogin desktop screenshot showing the navigation toolbar, Studio North folder, and Studio North — Ads Workspace profile"><span class="full-app-play-highlight" aria-label="Play button beside Studio North — Ads Workspace"><span>Play ↓</span></span></div>
   <p class="full-app-footer">Original app screenshot · Close this view to try the highlighted Play button in the demo.</p>
 </dialog>
-<script src="demo.js?v=ads-manager-preview" defer></script>
+<script src="demo.js?v=campaigns-workspace" defer></script>
 </body>
 </html>

@@ -8,21 +8,53 @@ let current = 'workspace';
 const accountPicker = document.getElementById('ad-account-picker');
 const accountList = document.getElementById('workspace-accounts');
 const accountActions = accountPicker.querySelector('.account-actions');
+const addAccountButton = document.getElementById('manage-ad-accounts');
+const campaignViews = document.querySelector('.campaign-views');
+const campaignTable = document.querySelector('.account-campaigns table');
 const sampleAccounts = {
   primary: { name: 'Studio North · Primary', status: 'Setup verified' },
   growth: { name: 'Studio North · Growth', status: 'Created in preview' },
   retail: { name: 'Studio North · Retail', status: 'Added in preview' }
 };
 
+function showAccountActions(open) {
+  accountActions.hidden = !open;
+  addAccountButton.setAttribute('aria-expanded', String(open));
+}
+
+addAccountButton.onclick = () => showAccountActions(accountActions.hidden);
+
+const viewLabels = {
+  campaigns: ['Campaigns', 'Campaign name', 'No campaigns yet'],
+  adsets: ['Ad sets', 'Ad set name', 'No ad sets yet'],
+  ads: ['Ads', 'Ad name', 'No ads yet']
+};
+
+function setCampaignView(view) {
+  const [label, column, emptyTitle] = viewLabels[view];
+  campaignTable.setAttribute('aria-label', label);
+  document.getElementById('campaign-name-column').textContent = column;
+  document.getElementById('campaign-empty-title').textContent = emptyTitle;
+  for (const button of campaignViews.children) {
+    button.setAttribute('aria-pressed', String(button.dataset.campaignView === view));
+  }
+}
+
+for (const button of campaignViews.children) {
+  button.onclick = () => setCampaignView(button.dataset.campaignView);
+}
+
 function selectAdAccount(key, announce = true) {
   const account = sampleAccounts[key];
   document.getElementById('selected-ad-account').textContent = account.name;
+  document.getElementById('campaign-account-caption').textContent = account.name;
   const status = document.getElementById('account-state');
   status.textContent = account.status;
   status.toggleAttribute('data-verified', key === 'primary');
   for (const button of accountList.children) {
     button.setAttribute('aria-pressed', String(button.dataset.account === key));
   }
+  showAccountActions(false);
   accountPicker.open = false;
   document.getElementById('account-feedback').textContent = announce ? account.name + '. ' + account.status + '.' : '';
   if (announce) accountPicker.querySelector('summary').focus();
@@ -32,7 +64,11 @@ function addAdAccountOption(key) {
   const option = document.createElement('button');
   option.type = 'button';
   option.dataset.account = key;
-  option.textContent = sampleAccounts[key].name;
+  const name = document.createElement('strong');
+  name.textContent = sampleAccounts[key].name;
+  const status = document.createElement('small');
+  status.textContent = sampleAccounts[key].status;
+  option.append(name, status);
   option.onclick = () => selectAdAccount(key);
   accountList.append(option);
 }
@@ -41,7 +77,8 @@ function resetAdAccountPreview() {
   accountList.replaceChildren();
   addAdAccountOption('primary');
   for (const action of accountActions.children) action.hidden = false;
-  accountActions.hidden = false;
+  addAccountButton.hidden = false;
+  setCampaignView('campaigns');
   selectAdAccount('primary', false);
 }
 
@@ -50,15 +87,26 @@ for (const action of accountActions.children) {
     const key = action.dataset.addAccount;
     addAdAccountOption(key);
     action.hidden = true;
-    accountActions.hidden = !accountActions.querySelector('button:not([hidden])');
+    addAccountButton.hidden = !accountActions.querySelector('button:not([hidden])');
     selectAdAccount(key);
   };
 }
 accountPicker.addEventListener('keydown', event => {
   if (event.key === 'Escape' && accountPicker.open) {
-    accountPicker.open = false;
-    accountPicker.querySelector('summary').focus();
+    if (accountActions.hidden) {
+      accountPicker.open = false;
+      accountPicker.querySelector('summary').focus();
+    } else {
+      showAccountActions(false);
+      addAccountButton.focus();
+    }
   }
+});
+accountPicker.addEventListener('toggle', () => {
+  if (!accountPicker.open) showAccountActions(false);
+});
+document.addEventListener('click', event => {
+  if (accountPicker.open && !accountPicker.contains(event.target)) accountPicker.open = false;
 });
 
 function renderStep(step) {
@@ -138,13 +186,18 @@ document.getElementById('try-sample-signup').onclick = () => {
 };
 document.getElementById('signup-terms').onchange = updateSignup;
 
-function openLegacyLink() {
-  if (location.hash !== '#join' && location.hash !== '#ad-accounts') return;
-  openPath(location.hash === '#ad-accounts');
-  document.getElementById('demo').scrollIntoView();
+function openDemoLink() {
+  if (location.hash === '#campaigns') {
+    returning = true;
+    renderStep('ads-manager');
+    guided.scrollIntoView({block: 'center'});
+  } else if (location.hash === '#join' || location.hash === '#ad-accounts') {
+    openPath(location.hash === '#ad-accounts');
+    document.getElementById('demo').scrollIntoView();
+  }
 }
-openLegacyLink();
-window.addEventListener('hashchange', openLegacyLink);
+openDemoLink();
+window.addEventListener('hashchange', openDemoLink);
 
 /* Plan selection & Demo request form */
 const form = document.getElementById('setup-form');
