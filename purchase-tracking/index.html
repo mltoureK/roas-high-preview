@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; object-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="description" content="Try ROAS HIGH Purchase tracking for WooCommerce with a sample dataset.">
+  <title>Purchase tracking demo · ROAS HIGH</title>
+  <link rel="stylesheet" href="./dashboard.css">
+  <link rel="stylesheet" href="./preview.css">
+  <script src="./preview.js" defer></script>
+</head>
+<body>
+  <nav class="preview-nav" aria-label="Demo navigation">
+    <a href="../#demo"><span aria-hidden="true">←</span> Workspace demo</a>
+    <span>WooCommerce plugin preview</span>
+  </nav>
+  <main class="wrap rh-app">
+    <header class="rh-mast">
+      <span class="rh-brand"><span class="rh-logo" aria-hidden="true"><i></i><i></i><i></i></span> ROAS HIGH</span>
+      <span class="rh-live-pill"><i aria-hidden="true"></i><span id="sending-status">Live sending off</span></span>
+    </header>
+    <div class="rh-heading">
+      <h1>Purchase tracking</h1>
+      <p>Send eligible paid orders from WooCommerce to Meta. Try the setup below with sample data.</p>
+    </div>
+    <noscript><p class="rh-notice">Enable JavaScript to try the three setup steps.</p></noscript>
+    <div class="rh-layout">
+      <section class="rh-flow" aria-labelledby="setup-title">
+        <div class="rh-section-head">
+          <h2 id="setup-title">Connection setup</h2>
+          <span class="rh-count" role="status">0 of 3 complete</span>
+        </div>
+        <div class="rh-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+        <details class="rh-profile-guide">
+          <summary><span class="monitor" aria-hidden="true"></span>Find Events Manager in Multilogin<span class="rh-chevron" aria-hidden="true"></span></summary>
+          <div class="rh-guide-body">
+            <p>In Multilogin, select <strong>Browser</strong>, open your assigned folder and start your profile. Paste this address into a tab inside that profile. Choose your client’s dataset and keep WordPress open in another tab.</p>
+            <div class="rh-guide-address">
+              <input class="rh-input" id="events-address" type="text" readonly aria-label="Events Manager address" value="https://business.facebook.com/events_manager2/">
+              <button class="rh-button rh-secondary" id="copy-address" type="button">Copy address</button>
+            </div>
+            <span class="rh-copy-status" id="copy-status" role="status"></span>
+          </div>
+        </details>
+        <details class="rh-step is-current" open>
+          <summary><span class="rh-step-no">1</span><span class="rh-step-title"><strong>Connect your dataset</strong><small>Use the sample dataset and token to try the connection.</small></span><span class="rh-chevron" aria-hidden="true"></span></summary>
+          <div class="rh-step-body">
+            <div class="rh-field">
+              <div class="rh-field-head">
+                <label for="dataset">Dataset ID</label>
+                <details class="rh-help"><summary>Where to find the ID</summary><div class="rh-help-content">In Events Manager, open <strong>Data sources</strong>, select the store’s dataset and copy the <strong>Dataset ID</strong> from <strong>Settings</strong>.</div></details>
+              </div>
+              <input class="rh-input" id="dataset" readonly value="000000000000001">
+            </div>
+            <div class="rh-field">
+              <div class="rh-field-head">
+                <label for="token">Conversions API access token</label>
+                <details class="rh-help"><summary>Where to generate the token</summary><div class="rh-help-content">In the same dataset’s <strong>Settings</strong>, find <strong>Conversions API</strong> and choose <strong>Generate access token</strong> under manual setup. Enter it in the installed WordPress plugin.</div></details>
+              </div>
+              <input class="rh-input" id="token" readonly value="Sample token ········">
+            </div>
+            <button class="rh-button rh-primary" type="button" id="connect">Save sample connection</button>
+          </div>
+        </details>
+        <details class="rh-step">
+          <summary><span class="rh-step-no">2</span><span class="rh-step-title"><strong>Send a test Purchase</strong><small>Preview a C$1 sample purchase.</small></span><span class="rh-chevron" aria-hidden="true"></span></summary>
+          <div class="rh-step-body">
+            <div class="rh-field">
+              <div class="rh-field-head">
+                <label for="test-code">Test event code</label>
+                <details class="rh-help"><summary>Where to find the test code</summary><div class="rh-help-content">Open the same dataset’s <strong>Test events</strong> tab in Multilogin. Look under <strong>server events</strong> for the code beginning with TEST.</div></details>
+              </div>
+              <input class="rh-input" id="test-code" readonly value="TESTDEMO">
+            </div>
+            <p class="rh-field-hint" id="test-hint">Save the sample connection in step 1 to unlock the test.</p>
+            <button class="rh-button rh-primary" type="button" id="test" disabled>Simulate test Purchase</button>
+          </div>
+        </details>
+        <details class="rh-step">
+          <summary><span class="rh-step-no">3</span><span class="rh-step-title"><strong>Enable live sending</strong><small>Review the test before enabling delivery.</small></span><span class="rh-chevron" aria-hidden="true"></span></summary>
+          <div class="rh-step-body">
+            <p id="review-hint">Finish the sample test in step 2 to unlock this step.</p>
+            <label class="rh-check"><input type="checkbox" id="reviewed" disabled><span>I reviewed the sample Purchase.</span></label>
+            <button class="rh-button rh-primary" type="button" id="enable" disabled>Enable in preview</button>
+            <button class="rh-button rh-secondary" type="button" id="restart" hidden>Restart demo</button>
+          </div>
+        </details>
+      </section>
+      <aside class="rh-aside" aria-labelledby="status-title">
+        <section class="rh-card">
+          <h2 id="status-title">Connection status</h2>
+          <dl class="rh-details-list">
+            <div><dt>Dataset</dt><dd id="dataset-status">Awaiting setup</dd></div>
+            <div><dt>Access token</dt><dd id="token-status">Awaiting setup</dd></div>
+            <div><dt>Test Purchase</dt><dd id="test-status">Awaiting test</dd></div>
+          </dl>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

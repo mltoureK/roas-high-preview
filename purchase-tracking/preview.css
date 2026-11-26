@@ -1,0 +1,10 @@
+html { background: #fff; color-scheme: light; }
+body { max-width: 1192px; margin: 0 auto; padding: 20px clamp(10px, 2.5vw, 32px); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.preview-nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px 16px; color: #526076; font-size: 13px; line-height: 1.5; }
+.preview-nav a { color: #2449c7; text-decoration: none; font-weight: 600; }
+.preview-nav a:hover { text-decoration: underline; }
+.preview-nav a:focus-visible { outline: 3px solid #2449c7; outline-offset: 3px; }
+.wrap.rh-app { margin: 12px 0 0; }
+.rh-app [hidden] { display: none; }
+.monitor { position: relative; display: inline-block; box-sizing: border-box; width: 15px; height: 10px; margin: 0 1px 3px; border: 2px solid currentColor; border-radius: 2px; }
+.monitor::after { content: ""; position: absolute; top: 8px; left: 2px; width: 7px; height: 2px; background: currentColor; }
