@@ -4,6 +4,8 @@ body { max-width: 1192px; margin: 0 auto; padding: 20px clamp(10px, 2.5vw, 32px)
 .preview-nav a { color: #2449c7; text-decoration: none; font-weight: 600; }
 .preview-nav a:hover { text-decoration: underline; }
 .preview-nav a:focus-visible { outline: 3px solid #2449c7; outline-offset: 3px; }
+.preview-nav .download-plugin { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; background: #2449c7; color: white; border-radius: 6px; }
+.install-guide p { margin: 12px 0 0; line-height: 1.55; }
 .wrap.rh-app { margin: 12px 0 0; }
 .rh-app [hidden] { display: none; }
 .monitor { position: relative; display: inline-block; box-sizing: border-box; width: 15px; height: 10px; margin: 0 1px 3px; border: 2px solid currentColor; border-radius: 2px; }

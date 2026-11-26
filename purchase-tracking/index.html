@@ -13,7 +13,7 @@
 <body>
   <nav class="preview-nav" aria-label="Demo navigation">
     <a href="../#demo"><span aria-hidden="true">←</span> Workspace demo</a>
-    <span>WooCommerce plugin preview</span>
+    <a class="download-plugin" href="https://github.com/mltoureK/roas-high-preview/releases/download/purchase-capi-v0.3.1/roas-high-purchase-capi-0.3.1.zip">Download plugin ZIP <span aria-hidden="true">↓</span></a>
   </nav>
   <main class="wrap rh-app">
     <header class="rh-mast">
@@ -95,6 +95,11 @@
             <div><dt>Access token</dt><dd id="token-status">Awaiting setup</dd></div>
             <div><dt>Test Purchase</dt><dd id="test-status">Awaiting test</dd></div>
           </dl>
+        </section>
+        <section class="rh-card install-guide">
+          <h2>Install on your store</h2>
+          <p>Upload the plugin ZIP under <strong>Plugins → Add New Plugin → Upload Plugin</strong> in WordPress. Activate it, then open <strong>WooCommerce → Purchase CAPI</strong> to enter your store’s dataset and token.</p>
+          <p>Version 0.3.1 requires WooCommerce, PHP 8.1+ with Sodium, and HTTPS. Before going live, connect your checkout’s consent settings and test a paid order.</p>
         </section>
       </aside>
     </div>
