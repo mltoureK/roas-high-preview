@@ -333,14 +333,9 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .launch-content .mail-from{margin-bottom:1.3rem}
 .launch-content h3:focus{outline:none}
 .tour-position{font-size:.82rem;color:var(--ink-2)}
-.facebook-scene{background:#f2f4f7}
-.facebook-scene .sim-bar{background:white}
-.fb-wordmark{color:#0866ff;font-size:1.5rem;font-weight:750;letter-spacing:-.065em}
-.studio-avatar{display:grid;place-items:center;background:#293f40;color:#fff;border:3px solid white;border-radius:50%;width:3.6rem;height:3.6rem;font:1.4rem Georgia,serif}
-.facebook-scene p{margin:.35rem 0 1.2rem}
-.facebook-scene .btn{margin-top:1.4rem}
+.launch-result .btn{margin-top:1rem}
 
-.profile-capture{position:relative}
+.profile-capture{position:relative;margin-top:.8rem}
 .profile-capture img{width:100%;height:auto;border-radius:8px}
 .profile-play{position:absolute;left:8.24%;top:67.62%;transform:translate(-50%,-50%);width:max(6%,44px);height:max(29%,44px);background:transparent;border:2px solid #a9c7ff;border-radius:9px;cursor:pointer}
 .profile-play:hover,.profile-play:focus-visible{box-shadow:0 0 0 3px #719cff80;outline:2px solid white}
@@ -501,7 +496,6 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .gmail-invite-hit .click-coach{right:8px;left:auto;background:#172d65;font-size:.75rem;bottom:calc(100% + 6px)}
 .opened-mail-join .click-coach{bottom:auto;top:calc(100% + 5px)}
 .opened-mail-join .click-coach b{transform:rotate(180deg)}
-.profile-play .click-coach{left:-4px}
 .workspace-select-hit .click-coach{bottom:auto;top:calc(100% + 5px)}
 .workspace-select-hit .click-coach b{transform:rotate(180deg)}
 .workspace-menu summary{outline:2px solid #82a8ff;outline-offset:3px;border-radius:6px}
@@ -581,7 +575,42 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .desktop-login-continue{width:100%;min-height:48px;border:0;border-radius:7px;background:#065bf5;color:white;font:600 16px Arial,sans-serif;cursor:pointer}.desktop-login-continue:hover{background:#004acb}
 @media(max-width:600px){.desktop-login-preview{padding:24px 18px}.desktop-login-preview h4{font-size:27px}}
 
-.full-app-trigger{margin-top:16px;text-decoration:underline;text-underline-offset:4px}
+.full-app-trigger {
+  position: absolute;
+  right: 6px;
+  top: 0;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font: 600 .75rem/1.2 var(--font);
+}
+.full-app-trigger span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .35rem .5rem;
+  border: 1px solid #707780;
+  border-radius: 6px;
+  background: #20242a;
+}
+.full-app-trigger:hover span, .full-app-trigger:focus-visible span { background: #39414b; }
+.invitation-path {
+  display: block;
+  margin-top: .3rem;
+  padding: .55rem 0;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font: 400 .88rem/1.5 var(--font);
+  text-align: left;
+  cursor: pointer;
+}
+.invitation-path strong { display: inline-block; color: var(--ink); font-weight: 600; }
+.invitation-path:hover strong, .invitation-path:focus-visible strong { text-decoration: underline; text-underline-offset: 3px; }
 .full-app-dialog{width:min(1400px,96vw);max-width:96vw;max-height:94dvh;padding:0;border:1px solid #d9d6ce;border-radius:14px;background:#fff;color:#15191b;overflow:auto;box-shadow:0 20px 80px #0006}
 .full-app-dialog::backdrop{background:#0b171dd9}
 .full-app-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 22px;background:#f1eee6;position:sticky;top:0;z-index:2}
@@ -617,12 +646,13 @@ dialog::backdrop{background:rgba(18,21,24,.62);backdrop-filter:blur(3px)}
 .setup-comparison tr>:nth-child(2){background:#dce5ff;font-weight:650}
 .setup-comparison thead th{border-bottom:1px solid #aeb8d5}
 
+.plan-add-ons { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid #aeb8d5; }
+.plan-add-ons h4 { font: 600 1rem/1.4 var(--font); }
 .purchase-preview-link {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
   min-height: 44px;
-  margin-top: .75rem;
   color: var(--stage-ink);
   font-size: .95rem;
   text-decoration: underline;

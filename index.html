@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=purchase-preview">
+<link rel="stylesheet" href="styles.css?v=workspace-launch">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -259,29 +259,27 @@
             <div class="sim-bar"><span>Multilogin desktop</span><small>Profiles</small></div>
             <div class="launch-content">
               <h3 tabindex="-1">Just hit play.</h3>
-              <p>Press ▶ beside <strong>Studio North — Ads Workspace</strong>.</p>
+              <p>Open a sample workspace we’ve prepared for you.</p>
               <div class="profile-capture">
                 <div class="profile-source-crop"><img src="assets/multilogin-approved-name.png" width="1610" height="978" alt="Multilogin profile list showing Studio North — Ads Workspace in the Studio North folder"></div>
-                <button type="button" class="profile-play" aria-label="Start" data-next="facebook"><span class="click-coach" aria-hidden="true">Press play <b>↓</b></span></button>
+                <button type="button" class="profile-play" aria-label="Play: open the Studio North sample workspace" data-next="facebook"></button>
+                <button type="button" class="full-app-trigger" id="view-full-app" aria-haspopup="dialog" aria-controls="full-app-dialog"><span>View full screen <b aria-hidden="true">⛶</b></span></button>
               </div>
-              <button type="button" class="btn-subtle full-app-trigger" id="view-full-app" aria-haspopup="dialog">View full app screen ↗</button>
+              <button type="button" class="invitation-path" id="new-path">New to Multilogin? <strong>Start with the invitation <span aria-hidden="true">→</span></strong></button>
             </div>
           </section>
 
-          <section class="launch-card facebook-scene" data-screen="facebook" hidden>
-            <div class="sim-bar"><span class="fb-wordmark">facebook</span><small>Workspace preview</small></div>
+          <section class="launch-card launch-result" data-screen="facebook" hidden>
             <div class="launch-content">
-              <span class="studio-avatar" aria-hidden="true">SN</span>
-              <p>Studio North</p>
-              <h3 tabindex="-1">You’ve reached Facebook.</h3>
+              <h3 tabindex="-1">Sample workspace</h3>
+              <p>You’ve finished the Studio North launch preview.</p>
               <a class="btn" href="#request">Get setup details</a>
             </div>
           </section>
-          <div class="guide-foot"><button type="button" class="btn-subtle" id="previous" hidden>← Back</button><button type="button" class="btn-subtle" id="new-path">Show me from the invitation →</button></div>
+          <div class="guide-foot" id="guide-foot" hidden><button type="button" class="btn-subtle" id="previous">← Back</button></div>
         </div>
       </div>
     </div>
-    <a class="purchase-preview-link" href="purchase-tracking/">Preview the WooCommerce purchase tracking add-on <span aria-hidden="true">→</span></a>
   </section>
     </section>
     <section class="reason-group">
@@ -312,6 +310,10 @@
         <p class="access-terms">Both include a prepared profile, proxy and written support. Monthly billing. Access ends with your paid subscription. Ad spend is separate.</p>
         <details class="access-details"><summary>Billing and asset access</summary><p>Monthly fees recur at the plan rate. Setup is charged once on Starter and waived on Scale Partner. The subscription provides managed access. Customer-owned business assets remain yours; continued use of our workspace and proxy requires an active subscription. Your written agreement identifies asset ownership, permissions and cancellation terms.</p></details>
         <small>USD, before tax. Confirmed in your written quote.</small>
+        <section class="plan-add-ons" aria-labelledby="add-ons-title">
+          <h4 id="add-ons-title">Optional add-ons</h4>
+          <a class="purchase-preview-link" href="purchase-tracking/">Preview WooCommerce purchase tracking <span aria-hidden="true">→</span></a>
+        </section>
       </div>
       <div class="setup-comparison">
         <table>
@@ -413,6 +415,6 @@
   <div class="full-app-image"><img src="assets/multilogin-approved-name.png" width="2840" height="1724" alt="Full Multilogin desktop screenshot showing the navigation toolbar, Studio North folder, and Studio North — Ads Workspace profile"><span class="full-app-play-highlight" aria-label="Play button beside Studio North — Ads Workspace"><span>Play ↓</span></span></div>
   <p class="full-app-footer">Original app screenshot · Close this view to try the highlighted Play button in the demo.</p>
 </dialog>
-<script src="demo.js?v=browser-tab" defer></script>
+<script src="demo.js?v=workspace-launch" defer></script>
 </body>
 </html>
