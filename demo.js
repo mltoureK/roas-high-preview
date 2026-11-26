@@ -9,10 +9,6 @@ const accountPicker = document.getElementById('ad-account-picker');
 const accountList = document.getElementById('workspace-accounts');
 const accountActions = accountPicker.querySelector('.account-actions');
 const addAccountButton = document.getElementById('manage-ad-accounts');
-const campaignViews = document.querySelector('.campaign-views');
-const campaignTable = document.querySelector('.account-campaigns table');
-const deliveryViews = document.querySelector('.delivery-views');
-const campaignFilter = document.getElementById('campaign-filter');
 const sampleAccounts = {
   primary: { name: 'Studio North · Primary', status: 'Setup verified' },
   growth: { name: 'Studio North · Growth', status: 'Created in preview' },
@@ -26,81 +22,8 @@ function showAccountActions(open) {
 
 addAccountButton.onclick = () => showAccountActions(accountActions.hidden);
 
-// Only the primary demo account has example drafts. No delivery or spend is simulated.
-const campaignLevels = {
-  campaigns: { label: 'Campaigns', singular: 'campaign', drafts: ['Spring collection', 'Studio North launch'] },
-  adsets: { label: 'Ad sets', singular: 'ad set', drafts: ['Spring collection audience', 'Launch audience'] },
-  ads: { label: 'Ads', singular: 'ad', drafts: ['Spring collection lookbook', 'Studio North introduction'] }
-};
-let selectedAccount = 'primary';
-let selectedLevel = 'campaigns';
-let deliveryFilter = 'all';
-
-function renderCampaignRows() {
-  const level = campaignLevels[selectedLevel];
-  const drafts = selectedAccount === 'primary' ? level.drafts : [];
-  const query = campaignFilter.value.trim().toLowerCase();
-  const names = drafts.filter(name => deliveryFilter !== 'active' && name.toLowerCase().includes(query));
-  const body = campaignTable.querySelector('#campaign-rows');
-  body.replaceChildren();
-  for (const name of names) {
-    const row = body.insertRow();
-    const heading = document.createElement('th');
-    heading.scope = 'row';
-    heading.textContent = name;
-    row.append(heading);
-    const delivery = row.insertCell();
-    delivery.className = 'delivery-col';
-    const status = document.createElement('span');
-    status.className = 'delivery-status';
-    status.textContent = 'Draft';
-    delivery.append(status);
-    for (const [column, value] of [['budget-col', 'Not set'], ['results-col', '—'], ['spend-col', '—']]) {
-      const cell = row.insertCell();
-      cell.className = column;
-      cell.textContent = value;
-    }
-  }
-
-  const label = level.label.toLowerCase();
-  document.getElementById('campaign-empty').hidden = names.length > 0;
-  document.getElementById('campaign-empty-title').textContent = drafts.length ? 'No matching ' + label : 'No ' + label + ' yet';
-  document.getElementById('campaign-account-caption').textContent = sampleAccounts[selectedAccount].name;
-  const count = names.length === drafts.length ? String(names.length) : names.length + ' of ' + drafts.length;
-  document.getElementById('ledger-caption').textContent = count + ' sample ' + (drafts.length === 1 ? level.singular : label);
-}
-
-function setCampaignView(view) {
-  selectedLevel = view;
-  const level = campaignLevels[view];
-  campaignTable.setAttribute('aria-label', level.label);
-  document.getElementById('campaign-name-column').textContent = level.singular[0].toUpperCase() + level.singular.slice(1) + ' name';
-  for (const button of campaignViews.children) {
-    button.setAttribute('aria-pressed', String(button.dataset.campaignView === view));
-  }
-  renderCampaignRows();
-}
-
-for (const button of campaignViews.children) {
-  button.onclick = () => setCampaignView(button.dataset.campaignView);
-}
-function setDeliveryFilter(filter) {
-  deliveryFilter = filter;
-  for (const button of deliveryViews.children) {
-    button.setAttribute('aria-pressed', String(button.dataset.deliveryView === filter));
-  }
-  renderCampaignRows();
-}
-for (const button of deliveryViews.children) {
-  button.onclick = () => setDeliveryFilter(button.dataset.deliveryView);
-}
-campaignFilter.addEventListener('input', renderCampaignRows);
-
 function selectAdAccount(key, announce = true) {
   const account = sampleAccounts[key];
-  selectedAccount = key;
-  campaignFilter.value = '';
-  setDeliveryFilter('all');
   document.getElementById('selected-ad-account').textContent = account.name;
   const status = document.getElementById('account-state');
   status.textContent = account.status;
@@ -134,7 +57,6 @@ function resetAdAccountPreview() {
   addAdAccountOption('primary');
   for (const action of accountActions.children) action.hidden = false;
   addAccountButton.hidden = false;
-  setCampaignView('campaigns');
   selectAdAccount('primary', false);
 }
 
