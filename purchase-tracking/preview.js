@@ -32,11 +32,6 @@
     steps[focusIndex].querySelector('summary').focus();
   }
 
-  byId('sample-origin').addEventListener('change', event => {
-    const link = new URL(byId('sample-link').value);
-    link.searchParams.set('quote_entry_site', event.target.value);
-    byId('sample-link').value = link.href;
-  });
   byId('connect').addEventListener('click', () => {
     reviewed.checked = false;
     advance(1, 1);

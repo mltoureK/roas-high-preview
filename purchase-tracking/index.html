@@ -8,12 +8,13 @@
   <title>Purchase tracking demo · ROAS HIGH</title>
   <link rel="stylesheet" href="./dashboard.css">
   <link rel="stylesheet" href="./preview.css">
+  <script src="./tracking-links.js" defer></script>
   <script src="./preview.js" defer></script>
 </head>
 <body>
   <nav class="preview-nav" aria-label="Demo navigation">
     <a href="../#demo"><span aria-hidden="true">←</span> Workspace demo</a>
-    <a class="download-plugin" href="https://github.com/mltoureK/roas-high-preview/releases/download/purchase-capi-v0.4.0/roas-high-purchase-capi-0.4.0.zip">Download plugin ZIP <span aria-hidden="true">↓</span></a>
+    <a class="download-plugin" href="https://github.com/mltoureK/roas-high-preview/releases/download/purchase-capi-v0.4.1/roas-high-purchase-capi-0.4.1.zip">Download plugin ZIP <span aria-hidden="true">↓</span></a>
   </nav>
   <main class="wrap rh-app">
     <header class="rh-mast">
@@ -35,9 +36,10 @@
         <details class="rh-profile-guide">
           <summary>Landing domains &amp; tracking links<span class="rh-chevron" aria-hidden="true"></span></summary>
           <div class="rh-guide-body">
-            <p>Choose a sample landing domain to see the link you would place on that page.</p>
-            <label>Landing domain <select id="sample-origin"><option>shop.example.com</option><option>example.com</option></select></label>
-            <label class="rh-field">Store link<input class="rh-input" readonly id="sample-link" value="https://store.example.com/checkout/?quote_entry_site=shop.example.com"></label>
+            <label class="rh-field">Landing domains · one per line<textarea class="rh-input" id="rh-domains" rows="2" maxlength="4096">shop.example.com</textarea></label>
+            <label class="rh-field">Store page the button should open<input class="rh-input" type="url" required id="rh-destination" value="https://store.example.com/checkout/" data-base="https://store.example.com/"></label>
+            <h3>Link for your squeeze-page button</h3>
+            <div id="rh-store-links"></div><p id="rh-link-status" role="status"></p>
             <p>The installed plugin lets you send eligible purchases from all origins or only listed domains.</p>
           </div>
         </details>
@@ -108,7 +110,7 @@
         <section class="rh-card install-guide">
           <h2>Install on your store</h2>
           <p>Upload the plugin ZIP under <strong>Plugins → Add New Plugin → Upload Plugin</strong> in WordPress. Activate it, then open <strong>WooCommerce → Purchase CAPI</strong> to enter your store’s dataset and token.</p>
-          <p>Version 0.4.0 requires WooCommerce, PHP 8.1+ with Sodium, and HTTPS. Before going live, connect your checkout’s consent settings and test a paid order.</p>
+          <p>Version 0.4.1 requires WooCommerce, PHP 8.1+ with Sodium, and HTTPS. Before going live, connect your checkout’s consent settings and test a paid order.</p>
         </section>
       </aside>
     </div>
