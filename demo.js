@@ -1,6 +1,31 @@
 /* Interactive workspace preview. All actions stay on this page. */
 const guided = document.getElementById('guided');
 const panels = [...guided.querySelectorAll('[data-screen]')];
+
+const stepHints = {
+  inbox: 'Next, open the highlighted invitation email.',
+  join: 'Next, click Join in the invitation.',
+  signup: 'Next, use the sample details, then click Create.',
+  verify: 'Next, click Preview verification.',
+  downloadapp: 'Next, choose your computer’s operating system.',
+  appinstalled: 'Next, continue with the sample desktop login.',
+  signin: 'Next, use the sample login, then click Continue.',
+  select: 'Next, open the workspace menu and select ROAS HIGH.',
+  setup: 'Next, preview the desktop download or open your installed profile.',
+  installed: 'Next, preview the prepared profile.',
+  help: 'Next, return to setup when you are ready.',
+  'browser-tab': 'Next, click Browser.',
+  folder: 'Next, open the Studio North folder.',
+  workspace: 'Follow the arrow and press Play to open the sample workspace.',
+  'ads-manager': 'Your workspace is open. Explore the ad account menu, or go back to replay.'
+};
+for (const panel of panels) {
+  const hint = document.createElement('p');
+  hint.className = 'demo-next-hint';
+  hint.textContent = stepHints[panel.dataset.screen] || 'Choose an action below to continue.';
+  panel.prepend(hint);
+}
+
 const progress = document.getElementById('tour-position');
 let returning = true;
 let current = 'workspace';
@@ -14,6 +39,13 @@ const sampleAccounts = {
   growth: { name: 'Studio North · Growth', status: 'Created in preview' },
   retail: { name: 'Studio North · Retail', status: 'Added in preview' }
 };
+
+let accountChosen = false;
+function updateAccountGuidance() {
+  const hint = guided.querySelector('[data-screen="ads-manager"] .demo-next-hint');
+  hint.textContent = accountPicker.open ? 'Select Studio North · Primary from the account list.' : accountChosen ? 'Account selected. Next, get your setup details below.' : 'Open the account dropdown to choose your account.';
+  accountPicker.classList.toggle('selection-complete', accountChosen);
+}
 
 function showAccountActions(open) {
   accountActions.hidden = !open;
@@ -34,7 +66,7 @@ function selectAdAccount(key, announce = true) {
   showAccountActions(false);
   accountPicker.open = false;
   document.getElementById('account-feedback').textContent = announce ? account.name + '. ' + account.status + '.' : '';
-  if (announce) accountPicker.querySelector('summary').focus();
+  if (announce) { accountChosen = true; updateAccountGuidance(); accountPicker.querySelector('summary').focus(); }
 }
 
 function addAdAccountOption(key) {
@@ -53,11 +85,13 @@ function addAdAccountOption(key) {
 }
 
 function resetAdAccountPreview() {
+  accountChosen = false;
   accountList.replaceChildren();
   addAdAccountOption('primary');
   for (const action of accountActions.children) action.hidden = false;
   addAccountButton.hidden = false;
   selectAdAccount('primary', false);
+  updateAccountGuidance();
 }
 
 for (const action of accountActions.children) {
@@ -81,6 +115,7 @@ accountPicker.addEventListener('keydown', event => {
   }
 });
 accountPicker.addEventListener('toggle', () => {
+  updateAccountGuidance();
   if (!accountPicker.open) showAccountActions(false);
 });
 document.addEventListener('click', event => {
