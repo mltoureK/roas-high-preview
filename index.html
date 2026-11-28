@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore ROAS HIGH ad infrastructure and request setup details by email or WhatsApp.">
 <title>ROAS HIGH — Managed Meta Ads Workspace</title>
-<link rel="stylesheet" href="styles.css?v=account-guide4">
+<link rel="stylesheet" href="styles.css?v=page12">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -272,9 +272,9 @@
           <section class="launch-card launch-result" data-screen="ads-manager" hidden>
             <div class="sim-bar"><h3 tabindex="-1">Facebook Ads Manager</h3><small>Interactive preview</small></div>
             <div class="launch-content">
-              <div class="campaign-photo">
-                <div class="photo-viewport">
-                  <img src="assets/miami-campaigns-reference.png" width="2048" height="1003" alt="Facebook Ads Manager’s Campaigns screen from the University of Miami guide, with the account dropdown beside Campaigns.">
+              <div class="campaign-photo empty-campaign-demo">
+                <div class="photo-viewport"><button type="button" class="overview-image-hit" data-next="account-overview" aria-label="Go to Account Overview from screenshot"></button>
+                  <img src="assets/ads-empty-campaigns.png?v=7" width="2768" height="1414" alt="Empty Campaigns screen prompting you to finish setup in Account Overview.">
                 </div>
                 <details id="ad-account-picker" class="account-picker">
                   <summary aria-describedby="account-guide">
@@ -297,15 +297,42 @@
                   </div>
                 </details>
               </div>
-              <div class="photo-caption"><a href="https://ucomm.miami.edu/_assets/pdf/tools-and-resources/guide-to-facebook-ads-manager.pdf#page=1" target="_blank" rel="noopener">Screenshot from the University of Miami guide (2024) ↗</a></div>
+
               <span id="account-feedback" class="stage-reader-title" role="status"></span>
               <div class="account-result-footer">
-                <div class="account-context"><span id="account-state" class="account-state" data-verified>Setup verified</span><span id="account-guide">Your workspace comes with the first ad account already set up.</span></div>
-                <a class="btn" href="#request">Get setup details</a>
+                <div class="account-context"><span id="account-state" class="account-state" data-verified>Prepared account</span><span id="account-guide">Finish the account checks before creating your first campaign.</span></div>
+                <button type="button" class="btn overview-next" data-next="account-overview">Go to Account Overview →</button>
               </div>
             </div>
           </section>
-          <div class="guide-foot" id="guide-foot" hidden><button type="button" class="btn-subtle" id="previous">← Back</button></div>
+          <section class="launch-card" data-screen="page-settings" hidden>
+            <div class="sim-bar"><h3 tabindex="-1">Connect your Facebook Page</h3><small>Guided example</small></div>
+            <div class="launch-content">
+              <p>In your business portfolio, open Settings → Accounts → Pages → Add. Choose the path that fits your business.</p>
+              <div class="page-paths">
+                <button type="button" data-page-path="create" aria-expanded="false" aria-controls="page-path-notes"><span aria-hidden="true">↗</span> Create a Facebook Page</button>
+                <button type="button" data-page-path="access" aria-expanded="false" aria-controls="page-path-notes"><span aria-hidden="true">↗</span> Request shared access</button>
+              </div>
+              <div id="page-path-notes" class="payment-info-box" hidden tabindex="-1"></div>
+              <p class="signup-demo-note">Guided example · Complete the actual setup in Meta. Your business keeps ownership of its Page.</p>
+              <button type="button" class="btn" data-next="payment-location">Continue to payment preview →</button>
+            </div>
+          </section>
+          <section class="launch-card" data-screen="account-overview" hidden>
+            <div class="sim-bar"><h3 tabindex="-1">Account Overview</h3><small>Setup preview</small></div>
+            <div class="launch-content">
+              <p>Your Page and phone are confirmed in this sample workspace. Next, preview payment setup.</p>
+              <div class="overview-capture"><img class="account-overview-image" src="assets/ads-account-overview.png?v=10" width="2050" height="1252" alt="Studio North sample account with Page and phone confirmed."><button class="payment-image-hit" type="button" data-next="payment-location" aria-label="Add payment method from screenshot"></button></div>
+              <div class="overview-explanation">
+                <p><strong>Connect your business Page.</strong> This example shows the completed state. Choose a setup path to see how to get there.</p><button type="button" class="btn" data-next="page-settings">Open Page settings →</button>
+                <p><strong>Add your payment method.</strong> This pays for your ads through Meta.</p>
+                <p><strong>Verify your phone.</strong> Phone verification is complete in this demo.</p>
+              </div>
+              <p class="signup-demo-note">Illustrative demo · Page and phone shown as confirmed.</p>
+              <button class="btn" type="button" data-next="payment-location">Add payment method →</button>
+            </div>
+          </section>
+<section class="launch-card" data-screen="payment-location" hidden><div class="sim-bar"><h3 tabindex="-1">Review location and currency</h3><small>Payment preview</small></div><div class="launch-content"><p>These are example settings from the screenshot. Check your business location, currency and time zone in your own account before continuing.</p><div class="payment-shot location-shot"><img class="payment-step-image" src="assets/payment-location.png" alt="Review location and currency in the supplied Meta screenshot"><button type="button" class="location-next-hit" data-next="payment-methods" aria-label="Next on payment screenshot"><span aria-hidden="true">↓</span></button></div><p class="signup-demo-note">Demo only · Sample settings and payment choices.</p><button class="btn" type="button" data-next="payment-methods">Next →</button></div></section><section class="launch-card" data-screen="payment-methods" hidden><div class="sim-bar"><h3 tabindex="-1">Choose a payment method</h3><small>Payment preview</small></div><div class="launch-content"><p>This screenshot shows the available choices for the example region. Tap a highlighted payment row to see what to prepare. On a small screen, swipe across the screenshot if needed.</p><div class="payment-shot-scroll"><div class="payment-shot methods-shot"><img class="payment-step-image" src="assets/payment-methods.png" alt="Payment choices. Select a highlighted row."><button type="button" class="payment-row-hit payment-row-0" data-payment-choice="Debit or credit card" aria-label="Debit or credit card" aria-pressed="false"><span aria-hidden="true">←</span></button><button type="button" class="payment-row-hit payment-row-1" data-payment-choice="PayPal" aria-label="PayPal" aria-pressed="false"><span aria-hidden="true">←</span></button><button type="button" class="payment-row-hit payment-row-2" data-payment-choice="Online banking" aria-label="Online banking" aria-pressed="false"><span aria-hidden="true">←</span></button><button type="button" class="payment-row-hit payment-row-3" data-payment-choice="Stablecoin (USDC)" aria-label="Stablecoin (USDC)" aria-pressed="false"><span aria-hidden="true">←</span></button></div></div><p class="signup-demo-note">Demo only · Sample settings and payment choices.</p><div id="payment-demo-status" class="payment-info-box" role="status" tabindex="-1">Tap a payment method in the screenshot to see the next step.</div><a class="btn" href="#request">Get setup details</a></div></section>          <div class="guide-foot" id="guide-foot" hidden><button type="button" class="btn-subtle" id="previous">← Back</button></div>
         </div>
       </div>
     </div>
@@ -444,6 +471,6 @@
   <div class="full-app-image"><img src="assets/multilogin-approved-name.png?v=2" width="2840" height="1724" alt="Full Multilogin desktop screenshot showing the navigation toolbar, Studio North folder, and Studio North — Ads Workspace profile"><svg viewBox="0 0 240 160" class="play-guide-arrow" aria-hidden="true"><path d="M220 140 C145 145 65 80 12 12 M46 22 L12 12 L14 46" fill="none" stroke="#bfdbfe" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M220 140 C145 145 65 80 12 12 M46 22 L12 12 L14 46" fill="none" stroke="#0066ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="full-app-play-highlight" aria-label="Play button beside Studio North — Ads Workspace"><span>Play ↓</span></span></div>
   <p class="full-app-footer">App screenshot · Close this view to try the highlighted Play button in the demo.</p>
 </dialog>
-<script src="demo.js?v=account-guide4" defer></script>
+<script src="demo.js?v=page12" defer></script>
 </body>
 </html>

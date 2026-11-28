@@ -3,20 +3,24 @@ const guided = document.getElementById('guided');
 const panels = [...guided.querySelectorAll('[data-screen]')];
 
 const stepHints = {
-  inbox: 'Next, open the highlighted invitation email.',
-  join: 'Next, click Join in the invitation.',
-  signup: 'Next, use the sample details, then click Create.',
-  verify: 'Next, click Preview verification.',
-  downloadapp: 'Next, choose your computer’s operating system.',
-  appinstalled: 'Next, continue with the sample desktop login.',
-  signin: 'Next, use the sample login, then click Continue.',
-  select: 'Next, open the workspace menu and select ROAS HIGH.',
+  'page-settings': 'Choose a Page setup path to see the steps and who completes them.',
+  'account-overview': 'Page and phone are confirmed in this demo. Next, add a payment method.',
+  'payment-location': 'Review the example billing settings, then tap Next.',
+  'payment-methods': 'Choose a sample payment method to see what comes next.',
+  inbox: 'Open the invitation email. It contains your link to the shared workspace.',
+  join: 'Tap Join to connect your Multilogin account to the invited workspace.',
+  signup: 'Fill the sample password, check the demo terms, then Create. Your account identifies you when you sign in.',
+  verify: 'Preview email verification. In the real setup, this confirms you control the invited email address.',
+  downloadapp: 'Choose your computer’s operating system. The desktop app runs your prepared browser profile.',
+  appinstalled: 'Continue with the sample login. Signing in makes your shared workspaces available in the desktop app.',
+  signin: 'Try the sample login, then Continue. Your existing account can access the workspace you joined.',
+  select: 'Open the account menu and choose ROAS HIGH. This switches you into the workspace we prepared.',
   setup: 'Next, preview the desktop download or open your installed profile.',
   installed: 'Next, preview the prepared profile.',
   help: 'Next, return to setup when you are ready.',
-  'browser-tab': 'Next, click Browser.',
-  folder: 'Next, open the Studio North folder.',
-  workspace: 'Follow the arrow and press Play to open the sample workspace.',
+  'browser-tab': 'Choose Browser to find the desktop profiles assigned to you.',
+  folder: 'Open Studio North. Folders group the profiles for your business.',
+  workspace: 'Press Play to launch your prepared browser profile and reach the sample Ads Manager.',
   'ads-manager': 'Your workspace is open. Explore the ad account menu, or go back to replay.'
 };
 for (const panel of panels) {
@@ -24,6 +28,15 @@ for (const panel of panels) {
   hint.className = 'demo-next-hint';
   hint.textContent = stepHints[panel.dataset.screen] || 'Choose an action below to continue.';
   panel.prepend(hint);
+}
+
+const invitationArrow = document.querySelector('.play-guide-arrow');
+const invitationActions = guided.querySelectorAll('#new-path, .email-join-button, #try-sample-signup, .signup-create, .verification-preview button, .download-os-choices button, .desktop-login-continue, #try-sample-login');
+for (const action of invitationActions) {
+  const arrow = invitationArrow.cloneNode(true);
+  arrow.setAttribute('class', 'invitation-action-arrow');
+  action.prepend(arrow);
+  action.classList.add('invitation-guided-action');
 }
 
 const progress = document.getElementById('tour-position');
@@ -35,7 +48,7 @@ const accountList = document.getElementById('workspace-accounts');
 const accountActions = accountPicker.querySelector('.account-actions');
 const addAccountButton = document.getElementById('manage-ad-accounts');
 const sampleAccounts = {
-  primary: { name: 'Studio North · Primary', status: 'Setup verified' },
+  primary: { name: 'Studio North · Primary', status: 'Prepared account' },
   growth: { name: 'Studio North · Growth', status: 'Created in preview' },
   retail: { name: 'Studio North · Retail', status: 'Added in preview' }
 };
@@ -43,7 +56,7 @@ const sampleAccounts = {
 let accountChosen = false;
 function updateAccountGuidance() {
   const hint = guided.querySelector('[data-screen="ads-manager"] .demo-next-hint');
-  hint.textContent = accountPicker.open ? 'Select Studio North · Primary from the account list.' : accountChosen ? 'Account selected. Next, get your setup details below.' : 'Open the account dropdown to choose your account.';
+  hint.textContent = accountPicker.open ? 'Select Studio North · Primary from the account list.' : accountChosen ? 'Account selected. Next, open Account Overview below.' : 'Open the account dropdown to choose your account.';
   accountPicker.classList.toggle('selection-complete', accountChosen);
 }
 
@@ -127,7 +140,7 @@ function renderStep(step) {
   document.getElementById('guide-foot').hidden = returning && step === 'workspace';
   const active = panels.find(panel => panel.dataset.screen === step);
   for (const panel of panels) panel.hidden = panel !== active;
-  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', 'browser-tab': 'Find your profile', folder: 'Find your profile', workspace: 'Ready to launch', 'ads-manager': '' };
+  const labels = { inbox: '1 of 3', join: '1 of 3', verify: '2 of 3', downloadapp: 'One-time setup', appinstalled: 'One-time setup', signup: '2 of 3', signin: '2 of 3', select: '3 of 3', setup: 'One-time setup', installed: 'One-time setup', help: 'Help', 'browser-tab': 'Find your profile', folder: 'Find your profile', workspace: 'Ready to launch', 'payment-location': 'Payment setup · 1 of 2', 'payment-methods': 'Payment setup · 2 of 2', 'page-settings': 'Page setup', 'account-overview': 'Account setup', 'ads-manager': '' };
   progress.textContent = returning && step === 'workspace' ? '' : labels[step];
   if (step === 'select') {
     document.getElementById('workspace-toolbar-image').src = 'assets/workspace-toolbar-closed.png';
@@ -159,6 +172,10 @@ for (const button of guided.querySelectorAll('[data-next]')) {
   button.onclick = () => renderStep(button.id === 'select-real-workspace' ? 'browser-tab' : button.dataset.next);
 }
 document.getElementById('previous').onclick = () => {
+  if (current === 'payment-methods') return renderStep('payment-location');
+  if (current === 'payment-location') return renderStep('account-overview');
+  if (current === 'page-settings') return renderStep('account-overview');
+  if (current === 'account-overview') return renderStep('ads-manager');
   if (current === 'ads-manager') return renderStep('workspace');
   if (current === 'workspace') return returning ? openPath(true) : renderStep('folder');
   if (current === 'folder') return renderStep('browser-tab');
@@ -321,3 +338,70 @@ fullAppDialog.addEventListener('click', event => {
   const bounds = fullAppDialog.getBoundingClientRect();
   if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) fullAppDialog.close();
 });
+
+
+const paymentGuidance = {
+  'Debit or credit card': 'Have your cardholder name, card number, expiry date, security code and billing address ready. If your card or its linked account has a payment restriction, check the issue with the issuer or Meta before connecting it. For a dedicated advertising card, we recommend considering Adpos, which provides virtual cards for ad payments. Review its eligibility, fees and funding terms before signing up.',
+  'PayPal': 'Connect PayPal, then choose how to fund your ads. An eligible bank account or card linked in your PayPal Wallet can supply the money. Check the funding source and payment permission before approving the connection. Tip: link and verify your preferred bank in PayPal first.',
+  'Online banking': 'Pay from your bank through the banking option offered in Meta. Choose your supported bank and follow the connection or verification steps shown. Availability and processing times depend on your account and region. Tip: check the bank name, debit authorization and timing before confirming.',
+  'Stablecoin (USDC)': 'Got USDC? When this option appears in your account, follow Meta’s payment partner to top up your ad balance. The partner converts the payment and Meta credits the balance. Availability varies by account and region. Tip: match the USDC network, destination and amount shown by the provider, and review the fees before sending.'
+};
+for (const choice of document.querySelectorAll('[data-payment-choice]')) {
+  choice.addEventListener('click', () => {
+    for (const option of document.querySelectorAll('[data-payment-choice]')) option.setAttribute('aria-pressed', String(option === choice));
+    const info = document.getElementById('payment-demo-status');
+    info.replaceChildren();
+    const heading = document.createElement('strong');
+    heading.textContent = choice.dataset.paymentChoice;
+    const guidance = document.createElement('p');
+    guidance.textContent = paymentGuidance[choice.dataset.paymentChoice];
+    const note = document.createElement('small');
+    note.textContent = 'Demo guidance · Available methods and prompts depend on your account and region. Enter payment details only in the real payment flow.';
+    info.append(heading, guidance, note);
+    if (choice.dataset.paymentChoice === 'Debit or credit card') {
+      const link = document.createElement('a');
+      link.href = 'https://portal.adpos.io/n/home';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Explore Adpos virtual cards ↗';
+      info.append(link);
+    }
+    info.focus({preventScroll:true});
+    info.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+}
+
+const pagePathNotes = {
+  create: {
+    title: 'Starting fresh',
+    steps: ['The client creates a Page for their own business using its name, category and business details.', 'Review the Page and complete any setup prompts Meta displays.', 'Grant the advertising access needed for the workspace, then select the Page when creating an ad.'],
+    tip: 'Creating a Page gives your business its public identity on Facebook. Keep ownership with the client.'
+  },
+  access: {
+    title: 'Already have a business Page?',
+    steps: ['Choose Request shared access, then find the Page by its name or URL.', 'Review the permissions needed to advertise and send the access request.', 'Someone with full control of the Page reviews and approves the request. Check that access is active before using the Page for ads.'],
+    tip: 'Shared access lets another business work with the Page while its owner keeps ownership. A pending request still needs approval.'
+  }
+};
+for (const button of document.querySelectorAll('[data-page-path]')) {
+  button.addEventListener('click', () => {
+    const content = pagePathNotes[button.dataset.pagePath];
+    const notes = document.getElementById('page-path-notes');
+    notes.replaceChildren();
+    const title = document.createElement('strong');
+    title.textContent = content.title;
+    const steps = document.createElement('ol');
+    for (const text of content.steps) {
+      const item = document.createElement('li');
+      item.textContent = text;
+      steps.append(item);
+    }
+    const tip = document.createElement('p');
+    tip.textContent = content.tip;
+    notes.append(title, steps, tip);
+    notes.hidden = false;
+    for (const option of document.querySelectorAll('[data-page-path]')) option.setAttribute('aria-expanded', String(option === button));
+    notes.focus({preventScroll:true});
+    notes.scrollIntoView({block:'nearest'});
+  });
+}
